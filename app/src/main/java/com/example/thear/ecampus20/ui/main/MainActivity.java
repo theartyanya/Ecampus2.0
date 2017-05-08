@@ -1,13 +1,15 @@
-package com.example.thear.ecampus20;
+package com.example.thear.ecampus20.ui.main;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+import com.example.thear.ecampus20.R;
+
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
     }
 }
