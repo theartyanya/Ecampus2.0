@@ -1,15 +1,16 @@
 package com.example.thear.ecampus20.ui.main;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.thear.ecampus20.Constants;
 import com.example.thear.ecampus20.R;
@@ -21,26 +22,37 @@ import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String TAG = "main_activity";
+
     private DrawerLayout mDrawer;
     private Toolbar toolbar;
     private NavigationView nvDrawer;
+    private FragmentManager fragmentManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fragmentManager = getSupportFragmentManager();
         initializeAppbar();
         initializeDrawer();
         initializeStatusBar();
+        loadInitialFragment();
+    }
 
+    private void loadInitialFragment() {
+        fragmentManager
+                .beginTransaction()
+                .replace(R.id.mainContentLayout, MainFragment.newInstance())
+                .addToBackStack(Constants.MAIN_TAG)
+                .commit();
     }
 
     private void initializeDrawer() {
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         nvDrawer = (NavigationView) findViewById(R.id.navView);
         setupDrawerContent(nvDrawer);
-        View view = nvDrawer.getHeaderView(0);
     }
 
     private void initializeAppbar() {
@@ -103,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         if (fragmentClass != null) {
             try {
                 fragment = (Fragment) fragmentClass.newInstance();
-                getSupportFragmentManager()
+                fragmentManager
                         .beginTransaction()
                         .replace(R.id.mainContentLayout, fragment)
                         .addToBackStack(string)
@@ -112,8 +124,6 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        menuItem.setChecked(true);
-        setTitle(menuItem.getTitle());
         mDrawer.closeDrawers();
     }
 
@@ -130,5 +140,21 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        int i = fragmentManager.getBackStackEntryCount();
+        String tag = fragmentManager.getBackStackEntryAt(i - 1).getName();
+        switch (tag) {
+            case Constants.MAIN_TAG: {
+                finish();
+                break;
+            }
+            default: {
+                fragmentManager.popBackStackImmediate(Constants.MAIN_TAG, 0);
+                break;
+            }
+        }
     }
 }
