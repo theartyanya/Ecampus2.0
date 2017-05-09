@@ -1,11 +1,11 @@
 package com.example.thear.ecampus20.ui.main;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -16,6 +16,7 @@ import com.example.thear.ecampus20.ui.main.bulletins.BulletinsFragment;
 import com.example.thear.ecampus20.ui.main.discipline_choice.DisciplineChoiceFragment;
 import com.example.thear.ecampus20.ui.main.main.MainFragment;
 import com.example.thear.ecampus20.ui.main.rnp.RNPFragment;
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,22 +24,36 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private NavigationView nvDrawer;
 
-    private ActionBarDrawerToggle drawerToggle;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initializeAppbar();
+        initializeDrawer();
+        initializeStatusBar();
+
+    }
+
+    private void initializeDrawer() {
+        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        nvDrawer = (NavigationView) findViewById(R.id.navView);
+        setupDrawerContent(nvDrawer);
+    }
+
+    private void initializeAppbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        nvDrawer = (NavigationView) findViewById(R.id.navView);
-        setupDrawerContent(nvDrawer);
+    }
 
+    private void initializeStatusBar() {
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setNavigationBarTintEnabled(true);
+        tintManager.setTintColor(Color.parseColor("#20000000"));
     }
 
     private void setupDrawerContent(NavigationView nvDrawer) {

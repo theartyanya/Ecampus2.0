@@ -1,6 +1,7 @@
 package com.example.thear.ecampus20;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -48,5 +49,14 @@ public class Utils {
         Intent intent = new Intent(prevActivity, newActivity);
         prevActivity.finish();
         prevActivity.startActivity(intent);
+    }
+
+    public static int getStatusBarHeight(Context context) {
+        int result = 0;
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
     }
 }
