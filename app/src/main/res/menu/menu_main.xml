@@ -1,3 +1,22 @@
-<menu xmlns:tools="http://schemas.android.com/tools"
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.thear.ecampus20.MainActivity">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navMain"
+            android:checked="true"
+            android:title="@string/nav_main" />
+        <item
+            android:id="@+id/navBulletins"
+            android:title="@string/nav_bulletins" />
+        <item
+            android:id="@+id/navDisciplineChoice"
+            android:title="@string/nav_discipline_choice" />
+        <item
+            android:id="@+id/navRNP"
+            android:title="@string/nav_rnp" />
+        <item
+            android:id="@+id/navExit"
+            android:title="@string/nav_exit" />
+    </group>
 </menu>

@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Campus</string>
+
+    <string name="login">Логін</string>
+    <string name="password">Пароль</string>
+    <string name="log_in">вхід до кампусу</string>
+    <string name="error_text">Поле обов\'язкове для заповнення</string>
+    <string name="nav_bulletins">Оголошення</string>
+    <string name="nav_discipline_choice">Вибір дисциплін</string>
+    <string name="nav_main">Головна</string>
+    <string name="nav_exit">Вихід</string>
+    <string name="nav_rnp">РНП</string>
+
 </resources>
