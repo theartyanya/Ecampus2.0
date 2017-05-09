@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.thear.ecampus20.Constants;
 import com.example.thear.ecampus20.R;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         nvDrawer = (NavigationView) findViewById(R.id.navView);
         setupDrawerContent(nvDrawer);
+        View view = nvDrawer.getHeaderView(0);
     }
 
     private void initializeAppbar() {
