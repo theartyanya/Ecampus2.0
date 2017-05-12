@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding"
-    tools:context="com.example.thear.ecampus20.ui.login.splash.SplashFragment">
+    tools:context=".ui.fragment.initial.SplashFragment">
 
     <ImageView
         android:layout_width="match_parent"

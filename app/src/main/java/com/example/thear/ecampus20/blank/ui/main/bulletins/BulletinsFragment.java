@@ -1,4 +1,4 @@
-package com.example.thear.ecampus20.ui.main.rnp;
+package com.example.thear.ecampus20.blank.ui.main.bulletins;
 
 
 import android.os.Bundle;
@@ -13,14 +13,17 @@ import android.view.ViewGroup;
 
 import com.example.thear.ecampus20.R;
 
-public class RNPFragment extends Fragment {
 
-    public RNPFragment() {
+public class BulletinsFragment extends Fragment {
+
+    private static final String TAG = "bulletins";
+
+    public BulletinsFragment() {
         // Required empty public constructor
     }
 
-    public static RNPFragment newInstance() {
-        RNPFragment fragment = new RNPFragment();
+    public static BulletinsFragment newInstance() {
+        BulletinsFragment fragment = new BulletinsFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -38,17 +41,17 @@ public class RNPFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_rnp, container, false);
+        View view = inflater.inflate(R.layout.fragment_bulletins, container, false);
         setupNavigation();
         return view;
     }
 
     private void setupNavigation() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.getSupportActionBar().setTitle(getString(R.string.nav_rnp));
+        activity.getSupportActionBar().setTitle(getString(R.string.nav_bulletins));
         NavigationView navView = (NavigationView) activity.findViewById(R.id.navView);
         Menu navMenu = navView.getMenu();
-        MenuItem menuItem = navMenu.findItem(R.id.navRNP);
+        MenuItem menuItem = navMenu.findItem(R.id.navBulletins);
         menuItem.setChecked(true);
     }
 

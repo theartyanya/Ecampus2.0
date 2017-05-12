@@ -1,4 +1,4 @@
-package com.example.thear.ecampus20.ui.main.discipline_choice;
+package com.example.thear.ecampus20.blank.ui.main.discipline_choice;
 
 
 import android.os.Bundle;

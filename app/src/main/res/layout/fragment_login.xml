@@ -6,7 +6,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context="com.example.thear.ecampus20.ui.login.login.LoginFragment">
+    tools:context=".ui.fragment.initial.LoginFragment">
 
     <ImageView
         android:layout_width="match_parent"

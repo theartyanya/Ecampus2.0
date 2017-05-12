@@ -1,4 +1,4 @@
-package com.example.thear.ecampus20.ui.main.bulletins;
+package com.example.thear.ecampus20.blank.ui.main.main;
 
 
 import android.os.Bundle;
@@ -13,17 +13,21 @@ import android.view.ViewGroup;
 
 import com.example.thear.ecampus20.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link MainFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class MainFragment extends Fragment {
 
-public class BulletinsFragment extends Fragment {
+    private static final String TAG = "main";
 
-    private static final String TAG = "bulletins";
-
-    public BulletinsFragment() {
+    public MainFragment() {
         // Required empty public constructor
     }
 
-    public static BulletinsFragment newInstance() {
-        BulletinsFragment fragment = new BulletinsFragment();
+    public static MainFragment newInstance() {
+        MainFragment fragment = new MainFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -41,17 +45,17 @@ public class BulletinsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bulletins, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
         setupNavigation();
         return view;
     }
 
     private void setupNavigation() {
         AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.getSupportActionBar().setTitle(getString(R.string.nav_bulletins));
+        activity.getSupportActionBar().setTitle(getString(R.string.nav_main));
         NavigationView navView = (NavigationView) activity.findViewById(R.id.navView);
         Menu navMenu = navView.getMenu();
-        MenuItem menuItem = navMenu.findItem(R.id.navBulletins);
+        MenuItem menuItem = navMenu.findItem(R.id.navMain);
         menuItem.setChecked(true);
     }
 

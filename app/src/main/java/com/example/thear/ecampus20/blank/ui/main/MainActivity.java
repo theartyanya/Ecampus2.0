@@ -1,4 +1,4 @@
-package com.example.thear.ecampus20.ui.main;
+package com.example.thear.ecampus20.blank.ui.main;
 
 
 import android.graphics.Color;
@@ -12,12 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.thear.ecampus20.Constants;
 import com.example.thear.ecampus20.R;
-import com.example.thear.ecampus20.ui.main.bulletins.BulletinsFragment;
-import com.example.thear.ecampus20.ui.main.discipline_choice.DisciplineChoiceFragment;
-import com.example.thear.ecampus20.ui.main.main.MainFragment;
-import com.example.thear.ecampus20.ui.main.rnp.RNPFragment;
+import com.example.thear.ecampus20.blank.ui.main.bulletins.BulletinsFragment;
+import com.example.thear.ecampus20.blank.ui.main.discipline_choice.DisciplineChoiceFragment;
+import com.example.thear.ecampus20.blank.ui.main.main.MainFragment;
+import com.example.thear.ecampus20.blank.ui.main.rnp.RNPFragment;
+import com.example.thear.ecampus20.commons.Constants;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 public class MainActivity extends AppCompatActivity {
