@@ -45,7 +45,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_start, container, false);
         setupNavigation();
         return view;
     }
@@ -55,7 +55,7 @@ public class MainFragment extends Fragment {
         activity.getSupportActionBar().setTitle(getString(R.string.nav_main));
         NavigationView navView = (NavigationView) activity.findViewById(R.id.navView);
         Menu navMenu = navView.getMenu();
-        MenuItem menuItem = navMenu.findItem(R.id.navMain);
+        MenuItem menuItem = navMenu.findItem(R.id.navStart);
         menuItem.setChecked(true);
     }
 

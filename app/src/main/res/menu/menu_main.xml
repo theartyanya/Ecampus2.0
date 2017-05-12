@@ -3,7 +3,7 @@
     tools:context="com.example.thear.ecampus20.MainActivity">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navMain"
+            android:id="@+id/navStart"
             android:checked="true"
             android:title="@string/nav_main" />
         <item
