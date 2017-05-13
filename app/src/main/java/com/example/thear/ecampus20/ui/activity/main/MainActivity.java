@@ -127,19 +127,19 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 break;
             }
             case R.id.navBulletins: {
-
+                mMainPresenter.loadFragment(MainScreens.BULLETINS_SCREEN);
                 break;
             }
             case R.id.navDisciplineChoice: {
-
+                mMainPresenter.loadFragment(MainScreens.DISCIPLINE_CHOICE_SCREEN);
                 break;
             }
             case R.id.navRNP: {
-
+                mMainPresenter.loadFragment(MainScreens.RNP_SCREEN);
                 break;
             }
             case R.id.navExit: {
-
+                mMainPresenter.exit();
                 break;
             }
         }
@@ -158,4 +158,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         navigatorHolder.removeNavigator();
     }
 
+    @Override
+    public void onBackPressed() {
+        mMainPresenter.returnToStart();
+    }
 }
