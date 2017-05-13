@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ui.fragment.initial.LoginFragment">
+    tools:context=".unused.initial.LoginFragment">
 
     <ImageView
         android:layout_width="match_parent"

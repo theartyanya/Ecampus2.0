@@ -1,18 +1,16 @@
 package com.example.thear.ecampus20.ui.activity.main;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Utils;
@@ -20,7 +18,9 @@ import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
 import com.example.thear.ecampus20.ui.fragment.main.BulletinsFragment;
 import com.example.thear.ecampus20.ui.fragment.main.DisciplineChoiceFragment;
+import com.example.thear.ecampus20.ui.fragment.main.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.main.RNPFragment;
+import com.example.thear.ecampus20.ui.fragment.main.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.main.StartFragment;
 
 import javax.inject.Inject;
@@ -52,17 +52,23 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
             switch (screenKey) {
-                case MainScreens.START_SCREEN: {
+                case Screens.START_SCREEN: {
                     return StartFragment.newInstance();
                 }
-                case MainScreens.BULLETINS_SCREEN: {
+                case Screens.BULLETINS_SCREEN: {
                     return BulletinsFragment.newInstance();
                 }
-                case MainScreens.DISCIPLINE_CHOICE_SCREEN: {
+                case Screens.DISCIPLINE_CHOICE_SCREEN: {
                     return DisciplineChoiceFragment.newInstance();
                 }
-                case MainScreens.RNP_SCREEN: {
+                case Screens.RNP_SCREEN: {
                     return RNPFragment.newInstance();
+                }
+                case Screens.SPLASH_SCREEN: {
+                    return SplashFragment.newInstance();
+                }
+                case Screens.LOGIN_SCREEN: {
+                    return LoginFragment.newInstance();
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");
@@ -80,15 +86,6 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         }
     };
 
-    public static Intent getIntent(final Context context) {
-
-        return new Intent(context, MainActivity.class);
-    }
-
-    @ProvidePresenter
-    public MainPresenter createPresenter() {
-        return new MainPresenter(router);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +96,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         ButterKnife.bind(this);
         setupDrawerContent();
         initializeToolbar();
-        mMainPresenter.loadFragment(MainScreens.START_SCREEN);
+        toolbar.setVisibility(View.GONE);
+        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        mMainPresenter.loadInitialFragment();
     }
 
     private void initializeToolbar() {
@@ -123,19 +122,19 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     private void selectDrawerItem(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.navStart: {
-                mMainPresenter.loadFragment(MainScreens.START_SCREEN);
+                mMainPresenter.loadFragment(Screens.START_SCREEN);
                 break;
             }
             case R.id.navBulletins: {
-                mMainPresenter.loadFragment(MainScreens.BULLETINS_SCREEN);
+                mMainPresenter.loadFragment(Screens.BULLETINS_SCREEN);
                 break;
             }
             case R.id.navDisciplineChoice: {
-                mMainPresenter.loadFragment(MainScreens.DISCIPLINE_CHOICE_SCREEN);
+                mMainPresenter.loadFragment(Screens.DISCIPLINE_CHOICE_SCREEN);
                 break;
             }
             case R.id.navRNP: {
-                mMainPresenter.loadFragment(MainScreens.RNP_SCREEN);
+                mMainPresenter.loadFragment(Screens.RNP_SCREEN);
                 break;
             }
             case R.id.navExit: {
@@ -158,8 +157,4 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         navigatorHolder.removeNavigator();
     }
 
-    @Override
-    public void onBackPressed() {
-        mMainPresenter.returnToStart();
-    }
 }

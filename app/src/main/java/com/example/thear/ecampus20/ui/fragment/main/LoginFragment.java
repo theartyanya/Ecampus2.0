@@ -1,7 +1,9 @@
-package com.example.thear.ecampus20.ui.fragment.initial;
+package com.example.thear.ecampus20.ui.fragment.main;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -13,8 +15,8 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Utils;
-import com.example.thear.ecampus20.presentation.presenter.initial.LoginPresenter;
-import com.example.thear.ecampus20.presentation.view.initial.LoginView;
+import com.example.thear.ecampus20.presentation.presenter.main.LoginPresenter;
+import com.example.thear.ecampus20.presentation.view.main.LoginView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -106,5 +108,11 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         passwordTextInputLayout.setError(string);
     }
 
-
+    @Override
+    public void onLoggedIn() {
+        Toolbar toolbar = ButterKnife.findById(getActivity(), R.id.toolbar);
+        toolbar.setVisibility(View.VISIBLE);
+        DrawerLayout drawerLayout = ButterKnife.findById(getActivity(), R.id.drawer_layout);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
 }

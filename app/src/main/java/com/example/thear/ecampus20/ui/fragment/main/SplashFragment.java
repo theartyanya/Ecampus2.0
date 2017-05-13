@@ -1,4 +1,4 @@
-package com.example.thear.ecampus20.ui.fragment.initial;
+package com.example.thear.ecampus20.ui.fragment.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
-import com.example.thear.ecampus20.presentation.presenter.initial.SplashPresenter;
-import com.example.thear.ecampus20.presentation.view.initial.SplashView;
+import com.example.thear.ecampus20.presentation.presenter.main.SplashPresenter;
+import com.example.thear.ecampus20.presentation.view.main.SplashView;
 
 public class SplashFragment extends MvpAppCompatFragment implements SplashView {
     public static final String TAG = "SplashFragment";
