@@ -10,5 +10,10 @@
     <string name="nav_main">Головна</string>
     <string name="nav_exit">Вихід</string>
     <string name="nav_rnp">РНП</string>
-
+    <string name="main_direction">Напрям:</string>
+    <string name="main_study_level">Освітній рівень:</string>
+    <string name="main_course">Курс:</string>
+    <string name="main_group">Группа:</string>
+    <string name="main_start_year">Рік зарахування:</string>
+    <string name="main_current_year">Поточний навчальний рік:</string>
 </resources>
