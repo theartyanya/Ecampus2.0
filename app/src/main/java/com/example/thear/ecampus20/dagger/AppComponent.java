@@ -1,6 +1,7 @@
 package com.example.thear.ecampus20.dagger;
 
 import com.example.thear.ecampus20.dagger.module.NavigatorModule;
+import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
 import com.example.thear.ecampus20.presentation.presenter.main.LoginPresenter;
 import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
@@ -14,7 +15,7 @@ import dagger.Component;
  * Created by aleks on 12.05.2017.
  */
 @Singleton
-@Component(modules = {NavigatorModule.class, SharedPreferencesModule.class})
+@Component(modules = {NavigatorModule.class, SharedPreferencesModule.class, ServiceModule.class})
 public interface AppComponent {
 
     void inject(MainActivity activity);

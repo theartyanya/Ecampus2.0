@@ -11,6 +11,6 @@ public interface Constants {
     String DISCIPLINE_CHOICE_TAG = "discipline_choice";
 
     String SHARED_PREFERENCES_NAME = "shared_preferences";
-    String SHARED_PREFERENCES_LOGIN_TAG = "login";
+    String SHARED_PREFERENCES_LOGIN_TAG = "authUser";
     String SHARED_PREFERENCES_PASS_TAG = "password";
 }

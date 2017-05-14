@@ -1,5 +1,6 @@
 package com.example.thear.ecampus20.ui.fragment.main;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.DrawerLayout;
@@ -34,6 +35,8 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     TextInputLayout passwordTextInputLayout;
     @BindView(R.id.loginButton)
     Button loginButton;
+
+    private ProgressDialog progressDialog;
 
     public static LoginFragment newInstance() {
         LoginFragment fragment = new LoginFragment();
@@ -114,5 +117,16 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         toolbar.setVisibility(View.VISIBLE);
         DrawerLayout drawerLayout = ButterKnife.findById(getActivity(), R.id.drawer_layout);
         drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+    }
+
+    @Override
+    public void showProgressDialog() {
+        progressDialog = Utils.createProgressDialog(getContext());
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        if (progressDialog != null)
+            progressDialog.dismiss();
     }
 }

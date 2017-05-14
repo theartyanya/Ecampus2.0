@@ -1,17 +1,21 @@
 package com.example.thear.ecampus20.commons;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.example.thear.ecampus20.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 /**
@@ -89,5 +93,16 @@ public class Utils {
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setNavigationBarTintEnabled(true);
         tintManager.setTintColor(Color.parseColor("#20000000"));
+    }
+
+    public static ProgressDialog createProgressDialog(Context context) {
+        ProgressDialog progressDialog = new ProgressDialog(context, R.style.full_screen_dialog);
+        progressDialog.show();
+        progressDialog.setCancelable(false);
+        progressDialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.MATCH_PARENT);
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        progressDialog.setContentView(R.layout.dialog_layout);
+        return progressDialog;
     }
 }

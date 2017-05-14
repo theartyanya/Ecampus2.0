@@ -8,4 +8,8 @@ public interface LoginView extends MvpView {
     void showPasswordError(String string);
 
     void onLoggedIn();
+
+    void showProgressDialog();
+
+    void hideProgressDialog();
 }
