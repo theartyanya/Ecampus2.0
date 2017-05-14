@@ -16,4 +16,6 @@
     <string name="main_group">Группа:</string>
     <string name="main_start_year">Рік зарахування:</string>
     <string name="main_current_year">Поточний навчальний рік:</string>
+    <string name="course">курс</string>
+    <string name="semestr">семестр</string>
 </resources>

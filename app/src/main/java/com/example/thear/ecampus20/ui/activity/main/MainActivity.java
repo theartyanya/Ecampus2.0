@@ -18,11 +18,11 @@ import com.example.thear.ecampus20.commons.Utils;
 import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
 import com.example.thear.ecampus20.ui.fragment.main.BulletinsFragment;
-import com.example.thear.ecampus20.ui.fragment.main.DisciplineChoiceFragment;
 import com.example.thear.ecampus20.ui.fragment.main.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.main.RNPFragment;
 import com.example.thear.ecampus20.ui.fragment.main.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.main.StartFragment;
+import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DisciplineChoiceFragment;
 
 import javax.inject.Inject;
 
