@@ -30,6 +30,7 @@ public class CampusApplication extends Application {
                 .navigatorModule(new NavigatorModule())
                 .sharedPreferencesModule(new SharedPreferencesModule(this))
                 .serviceModule(new ServiceModule())
+                .navigatorModule(new NavigatorModule())
                 .build();
     }
 
