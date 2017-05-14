@@ -5,6 +5,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -96,9 +97,13 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         ButterKnife.bind(this);
         setupDrawerContent();
         initializeToolbar();
+        mMainPresenter.loadInitialFragment();
+    }
+
+    @Override
+    public void loginMode() {
         toolbar.setVisibility(View.GONE);
         mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-        mMainPresenter.loadInitialFragment();
     }
 
     private void initializeToolbar() {
@@ -157,4 +162,18 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         navigatorHolder.removeNavigator();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                openDrawer();
+                break;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void openDrawer() {
+        mDrawer.openDrawer(Gravity.START);
+    }
 }

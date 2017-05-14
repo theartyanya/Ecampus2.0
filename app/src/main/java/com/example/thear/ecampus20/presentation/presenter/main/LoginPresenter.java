@@ -1,16 +1,17 @@
 package com.example.thear.ecampus20.presentation.presenter.main;
 
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
+import com.example.thear.ecampus20.commons.Constants;
 import com.example.thear.ecampus20.model.Token;
 import com.example.thear.ecampus20.presentation.view.main.LoginView;
 import com.example.thear.ecampus20.service.CampusApi;
-import com.example.thear.ecampus20.service.Path;
 import com.example.thear.ecampus20.ui.activity.main.Screens;
 
 import java.util.HashMap;
@@ -33,11 +34,12 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
     Router router;
     @Inject
     CampusApi api;
+    @Inject
+    SharedPreferences preferences;
     private boolean isButtonClicked = false;
 
     public LoginPresenter() {
         CampusApplication.getComponent().inject(this);
-        Log.d("mytag", Path.path);
     }
 
     public boolean validateLogin(String str) {
@@ -71,7 +73,7 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
         }
     }
 
-    public void authUser(String login, String password) {
+    public void authUser(final String login, final String password) {
         getViewState().showProgressDialog();
         Map<String, String> fieldsMap = new HashMap<>();
         fieldsMap.put("username", login);
@@ -96,8 +98,17 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                     public void onNext(Token token) {
                         getViewState().hideProgressDialog();
                         getViewState().onLoggedIn();
+                        saveSharedPreferences(login, password);
                         router.newRootScreen(Screens.START_SCREEN);
                     }
                 });
+    }
+
+    private void saveSharedPreferences(String login, String password) {
+        preferences
+                .edit()
+                .putString(Constants.SHARED_PREFERENCES_LOGIN_TAG, login)
+                .putString(Constants.SHARED_PREFERENCES_PASS_TAG, password)
+                .apply();
     }
 }

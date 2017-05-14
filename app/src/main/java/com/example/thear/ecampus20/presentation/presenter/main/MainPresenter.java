@@ -29,7 +29,17 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     public void exit() {
-        router.finishChain();
+        router.newRootScreen(Screens.LOGIN_SCREEN);
+        clearSharedPreferences();
+        getViewState().loginMode();
+    }
+
+    private void clearSharedPreferences() {
+        preferences
+                .edit()
+                .remove(Constants.SHARED_PREFERENCES_LOGIN_TAG)
+                .remove(Constants.SHARED_PREFERENCES_PASS_TAG)
+                .apply();
     }
 
     public void returnToStart() {
@@ -38,6 +48,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     public void loadInitialFragment() {
+        getViewState().loginMode();
         CampusApplication.getComponent().inject(this);
         String login = preferences.getString(Constants.SHARED_PREFERENCES_LOGIN_TAG, null);
         String password = preferences.getString(Constants.SHARED_PREFERENCES_PASS_TAG, null);
