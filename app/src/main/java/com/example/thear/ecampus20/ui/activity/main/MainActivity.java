@@ -15,14 +15,16 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Utils;
+import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
 import com.example.thear.ecampus20.ui.fragment.main.BulletinsFragment;
-import com.example.thear.ecampus20.ui.fragment.main.DisciplineChoiceFragment;
 import com.example.thear.ecampus20.ui.fragment.main.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.main.RNPFragment;
 import com.example.thear.ecampus20.ui.fragment.main.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.main.StartFragment;
+import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DisciplineChoiceFragment;
+import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DoDCChoiceFragment;
 
 import javax.inject.Inject;
 
@@ -30,7 +32,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
-import ru.terrakok.cicerone.Router;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 
 public class MainActivity extends MvpAppCompatActivity implements MainView {
@@ -43,12 +44,12 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     DrawerLayout mDrawer;
     @BindView(R.id.navView)
     NavigationView nvDrawer;
-    @Inject
-    Router router;
+
     @InjectPresenter
     MainPresenter mMainPresenter;
     @Inject
     NavigatorHolder navigatorHolder;
+
     private Navigator navigator = new SupportFragmentNavigator(getSupportFragmentManager(), R.id.mainContentLayout) {
         @Override
         protected Fragment createFragment(String screenKey, Object data) {
@@ -70,6 +71,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 }
                 case Screens.LOGIN_SCREEN: {
                     return LoginFragment.newInstance();
+                }
+                case Screens.DO_CHOICE_SCREEN: {
+                    return DoDCChoiceFragment.newInstance((Semestr) data);
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");
@@ -93,11 +97,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         CampusApplication.getComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Utils.initializeStatusBar(this);
         ButterKnife.bind(this);
-        setupDrawerContent();
+        Utils.initializeStatusBar(this);
         initializeToolbar();
-        mMainPresenter.loadInitialFragment();
+        setupDrawerContent();
+        mMainPresenter.getMode();
     }
 
     @Override
@@ -106,7 +110,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
-    private void initializeToolbar() {
+    public void normalMode() {
+        toolbar.setVisibility(View.VISIBLE);
+    }
+
+    public void initializeToolbar() {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);

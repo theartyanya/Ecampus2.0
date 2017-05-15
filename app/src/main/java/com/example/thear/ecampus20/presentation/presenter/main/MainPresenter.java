@@ -25,6 +25,15 @@ public class MainPresenter extends MvpPresenter<MainView> {
     @Inject
     Router router;
 
+    public MainPresenter() {
+        CampusApplication.getComponent().inject(this);
+    }
+
+    @Override
+    protected void onFirstViewAttach() {
+        super.onFirstViewAttach();
+        loadInitialFragment();
+    }
 
     public void loadFragment(String screenName) {
         router.navigateTo(screenName);
@@ -50,14 +59,22 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     public void loadInitialFragment() {
-        getViewState().loginMode();
-        CampusApplication.getComponent().inject(this);
         String login = preferences.getString(Constants.SHARED_PREFERENCES_LOGIN_TAG, null);
         String password = preferences.getString(Constants.SHARED_PREFERENCES_PASS_TAG, null);
         if (login == null || password == null) {
             router.newRootScreen(Screens.LOGIN_SCREEN);
         } else {
             router.newRootScreen(Screens.SPLASH_SCREEN);
+        }
+    }
+
+    public void getMode() {
+        String login = preferences.getString(Constants.SHARED_PREFERENCES_LOGIN_TAG, null);
+        String password = preferences.getString(Constants.SHARED_PREFERENCES_PASS_TAG, null);
+        if (login == null || password == null) {
+            getViewState().loginMode();
+        } else {
+            getViewState().normalMode();
         }
     }
 }

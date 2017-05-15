@@ -11,4 +11,5 @@ public interface Screens {
     String RNP_SCREEN = "rnp";
     String SPLASH_SCREEN = "splash_screen";
     String LOGIN_SCREEN = "login_screen";
+    String DO_CHOICE_SCREEN = "do_choice_screen";
 }

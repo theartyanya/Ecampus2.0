@@ -10,5 +10,29 @@
     <string name="nav_main">Головна</string>
     <string name="nav_exit">Вихід</string>
     <string name="nav_rnp">РНП</string>
-
+    <string name="main_direction">Напрям:</string>
+    <string name="main_study_level">Освітній рівень:</string>
+    <string name="main_course">Курс:</string>
+    <string name="main_group">Группа:</string>
+    <string name="main_start_year">Рік зарахування:</string>
+    <string name="main_current_year">Поточний навчальний рік:</string>
+    <string name="course">курс</string>
+    <string name="semestr">семестр</string>
+    <string name="dc_year">Навчальний рік</string>
+    <string name="dc_semestr">Семестр</string>
+    <string name="dc_status">Статус</string>
+    <string name="dc_status_available">Вибір доступний</string>
+    <string name="dc_status_done">Вибір зроблений</string>
+    <string name="dc_status_unavailable">Вибір не доступний</string>
+    <string name="dc_go_to_choice">перейти до вибору</string>
+    <string name="dc_item_component_name">Назва компоненту:</string>
+    <string name="dc_item_block_name">Назва блоку:</string>
+    <string name="dc_item_disciplines">Дисципліни:</string>
+    <string name="dc_item_discipline_count">Кількість дисциплін для вибору:</string>
+    <string name="subject_item_subdivision">Підрозділ:</string>
+    <string name="subject_item_name">Назва:</string>
+    <string name="subject_item_description">Опис(англ):</string>
+    <string name="subject_item_max_students">Максимальна кількість студентів:</string>
+    <string name="subject_item_students">Кількість студентів:</string>
+    <string name="save_results">зберегти результати</string>
 </resources>
