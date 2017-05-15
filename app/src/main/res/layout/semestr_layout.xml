@@ -44,5 +44,12 @@
             style="@style/textViewStyle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/semestrChooseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/dc_go_to_choice" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

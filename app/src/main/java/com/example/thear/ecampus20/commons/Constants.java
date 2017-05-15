@@ -20,4 +20,5 @@ public interface Constants {
     String DC_STATUS_DONE = "done";
 
     String DC_COURSE_KEY = "course";
+    String DC_SEMESTER_KEY = "semester";
 }

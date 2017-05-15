@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,17 +40,14 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            course = (Course) getArguments().getSerializable(Constants.DC_COURSE_KEY);
-        }
-    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
+        if (getArguments() != null) {
+            course = (Course) getArguments().getSerializable(Constants.DC_COURSE_KEY);
+            mDisciplineSemestrPresenter.setCourse(course);
+        }
         View view = inflater.inflate(R.layout.fragment_discipline_semestr, container, false);
         ButterKnife.bind(this, view);
         loadSemesters();
@@ -58,7 +56,7 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
 
     private void loadSemesters() {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        for (Semestr semestr : course.getSemestrs()) {
+        for (final Semestr semestr : course.getSemestrs()) {
             View view = inflater.inflate(R.layout.semestr_layout, null);
             TextView studyYearTextView = ButterKnife.findById(view, R.id.semestrStudyYearTextView);
             studyYearTextView.setText(String.valueOf(semestr.getStudyPeriod().getStart())
@@ -67,18 +65,28 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
             TextView studySemestrTextView = ButterKnife.findById(view, R.id.semestrStudySemestrTextView);
             studySemestrTextView.setText(String.valueOf(semestr.getSemester()));
             TextView studyStatustextView = ButterKnife.findById(view, R.id.semestrStudyStatusTextView);
+            Button chooseButton = ButterKnife.findById(view, R.id.semestrChooseButton);
+            chooseButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDisciplineSemestrPresenter.goDoDiscChoice(semestr.getSemester());
+                }
+            });
             String statusString = "";
             switch (semestr.getStatus()) {
                 case Constants.DC_STATUS_AVAILABLE: {
                     statusString = getString(R.string.dc_status_available);
+                    chooseButton.setVisibility(View.VISIBLE);
                     break;
                 }
                 case Constants.DC_STATUS_UNAVAILABLE: {
                     statusString = getString(R.string.dc_status_unavailable);
+                    chooseButton.setVisibility(View.GONE);
                     break;
                 }
                 case Constants.DC_STATUS_DONE: {
                     statusString = getString(R.string.dc_status_done);
+                    chooseButton.setVisibility(View.GONE);
                     break;
                 }
             }
@@ -92,4 +100,5 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
         super.onViewCreated(view, savedInstanceState);
 
     }
+
 }
