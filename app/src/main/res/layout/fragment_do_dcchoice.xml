@@ -2,6 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.thear.ecampus20.main.DoDCChoiceFragment">
+    tools:context="ui.fragment.main.discipline_choice.DoDCChoiceFragment">
 
+    <ListView
+        android:id="@+id/doDcChoiceListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp" />
 </FrameLayout>

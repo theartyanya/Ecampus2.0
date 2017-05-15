@@ -25,4 +25,14 @@
     <string name="dc_status_done">Вибір зроблений</string>
     <string name="dc_status_unavailable">Вибір не доступний</string>
     <string name="dc_go_to_choice">перейти до вибору</string>
+    <string name="dc_item_component_name">Назва компоненту:</string>
+    <string name="dc_item_block_name">Назва блоку:</string>
+    <string name="dc_item_disciplines">Дисципліни:</string>
+    <string name="dc_item_discipline_count">Кількість дисциплін для вибору:</string>
+    <string name="subject_item_subdivision">Підрозділ:</string>
+    <string name="subject_item_name">Назва:</string>
+    <string name="subject_item_description">Опис(англ):</string>
+    <string name="subject_item_max_students">Максимальна кількість студентів:</string>
+    <string name="subject_item_students">Кількість студентів:</string>
+    <string name="save_results">зберегти результати</string>
 </resources>
