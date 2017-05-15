@@ -110,8 +110,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
+    @Override
     public void normalMode() {
         toolbar.setVisibility(View.VISIBLE);
+        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
     public void initializeToolbar() {
