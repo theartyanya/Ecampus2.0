@@ -73,7 +73,7 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
         }
     }
 
-    public void authUser(final String login, final String password) {
+    private void authUser(final String login, final String password) {
         getViewState().showProgressDialog();
         Map<String, String> fieldsMap = new HashMap<>();
         fieldsMap.put("username", login);

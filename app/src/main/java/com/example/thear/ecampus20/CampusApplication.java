@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.thear.ecampus20.dagger.AppComponent;
 import com.example.thear.ecampus20.dagger.DaggerAppComponent;
+import com.example.thear.ecampus20.dagger.module.AppModule;
 import com.example.thear.ecampus20.dagger.module.NavigatorModule;
 import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
