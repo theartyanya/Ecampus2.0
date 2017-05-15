@@ -1,5 +1,6 @@
 package com.example.thear.ecampus20.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by aleks on 15.05.2017.
  */
 
-public class Course {
+public class Course implements Serializable {
     List<Semestr> semestrs;
 
     public Course() {

@@ -13,4 +13,11 @@ public interface Constants {
     String SHARED_PREFERENCES_NAME = "shared_preferences";
     String SHARED_PREFERENCES_LOGIN_TAG = "authUser";
     String SHARED_PREFERENCES_PASS_TAG = "password";
+
+    String DC_STATUS_AVAILABLE = "available";
+    String DC_STATUS_UNAVAILABLE = "not available";
+    //уточнить
+    String DC_STATUS_DONE = "done";
+
+    String DC_COURSE_KEY = "course";
 }

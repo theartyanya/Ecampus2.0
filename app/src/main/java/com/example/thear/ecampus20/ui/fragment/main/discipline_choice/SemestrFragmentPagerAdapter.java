@@ -30,7 +30,7 @@ public class SemestrFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return DisciplineSemestrFragment.newInstance();
+        return DisciplineSemestrFragment.newInstance(courseList.get(position));
     }
 
     @Override

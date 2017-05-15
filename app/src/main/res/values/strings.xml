@@ -18,4 +18,10 @@
     <string name="main_current_year">Поточний навчальний рік:</string>
     <string name="course">курс</string>
     <string name="semestr">семестр</string>
+    <string name="dc_year">Навчальний рік</string>
+    <string name="dc_semestr">Семестр</string>
+    <string name="dc_status">Статус</string>
+    <string name="dc_status_available">Вибір доступний</string>
+    <string name="dc_status_done">Вибір зроблений</string>
+    <string name="dc_status_unavailable">Вибір не доступний</string>
 </resources>
