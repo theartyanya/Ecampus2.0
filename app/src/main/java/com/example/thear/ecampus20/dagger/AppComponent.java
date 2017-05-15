@@ -1,5 +1,6 @@
 package com.example.thear.ecampus20.dagger;
 
+import com.example.thear.ecampus20.dagger.module.ModeModule;
 import com.example.thear.ecampus20.dagger.module.NavigatorModule;
 import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
@@ -24,7 +25,8 @@ import dagger.Component;
         NavigatorModule.class,
         SharedPreferencesModule.class,
         ServiceModule.class,
-        TokenModule.class})
+        TokenModule.class,
+        ModeModule.class})
 public interface AppComponent {
 
     void inject(MainActivity activity);

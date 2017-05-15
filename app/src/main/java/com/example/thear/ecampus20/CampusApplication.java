@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.thear.ecampus20.dagger.AppComponent;
 import com.example.thear.ecampus20.dagger.DaggerAppComponent;
+import com.example.thear.ecampus20.dagger.module.ModeModule;
 import com.example.thear.ecampus20.dagger.module.NavigatorModule;
 import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
@@ -32,6 +33,7 @@ public class CampusApplication extends Application {
                 .sharedPreferencesModule(new SharedPreferencesModule(this))
                 .serviceModule(new ServiceModule())
                 .tokenModule(new TokenModule())
+                .modeModule(new ModeModule())
                 .build();
     }
 

@@ -110,8 +110,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
+    @Override
     public void normalMode() {
         toolbar.setVisibility(View.VISIBLE);
+        mDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
     public void initializeToolbar() {
@@ -135,19 +137,19 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     private void selectDrawerItem(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.navStart: {
-                mMainPresenter.loadFragment(Screens.START_SCREEN);
+                mMainPresenter.goToMainFragment();
                 break;
             }
             case R.id.navBulletins: {
-                mMainPresenter.loadFragment(Screens.BULLETINS_SCREEN);
+                mMainPresenter.loadMenuFragment(Screens.BULLETINS_SCREEN);
                 break;
             }
             case R.id.navDisciplineChoice: {
-                mMainPresenter.loadFragment(Screens.DISCIPLINE_CHOICE_SCREEN);
+                mMainPresenter.loadMenuFragment(Screens.DISCIPLINE_CHOICE_SCREEN);
                 break;
             }
             case R.id.navRNP: {
-                mMainPresenter.loadFragment(Screens.RNP_SCREEN);
+                mMainPresenter.loadMenuFragment(Screens.RNP_SCREEN);
                 break;
             }
             case R.id.navExit: {

@@ -9,10 +9,12 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.commons.Constants;
+import com.example.thear.ecampus20.dagger.holder.ModeHolder;
 import com.example.thear.ecampus20.dagger.holder.TokenHolder;
 import com.example.thear.ecampus20.model.Token;
 import com.example.thear.ecampus20.presentation.view.main.LoginView;
 import com.example.thear.ecampus20.service.CampusApi;
+import com.example.thear.ecampus20.ui.activity.main.Mode;
 import com.example.thear.ecampus20.ui.activity.main.Screens;
 
 import java.util.HashMap;
@@ -39,6 +41,8 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
     SharedPreferences preferences;
     @Inject
     TokenHolder tokenHolder;
+    @Inject
+    ModeHolder modeHolder;
     private boolean isButtonClicked = false;
 
     public LoginPresenter() {
@@ -103,6 +107,7 @@ public class LoginPresenter extends MvpPresenter<LoginView> {
                         getViewState().hideProgressDialog();
                         getViewState().onLoggedIn();
                         saveSharedPreferences(login, password);
+                        modeHolder.setMode(Mode.MAIN);
                         router.newRootScreen(Screens.START_SCREEN);
                     }
                 });

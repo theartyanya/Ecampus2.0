@@ -7,7 +7,9 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.commons.Constants;
+import com.example.thear.ecampus20.dagger.holder.ModeHolder;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
+import com.example.thear.ecampus20.ui.activity.main.Mode;
 import com.example.thear.ecampus20.ui.activity.main.Screens;
 
 import javax.inject.Inject;
@@ -21,9 +23,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     @Inject
     SharedPreferences preferences;
-
     @Inject
     Router router;
+    @Inject
+    ModeHolder modeHolder;
 
     public MainPresenter() {
         CampusApplication.getComponent().inject(this);
@@ -35,13 +38,18 @@ public class MainPresenter extends MvpPresenter<MainView> {
         loadInitialFragment();
     }
 
-    public void loadFragment(String screenName) {
-        router.navigateTo(screenName);
+    public void loadMenuFragment(String screenName) {
+        router.newScreenChain(screenName);
+    }
+
+    public void goToMainFragment() {
+        router.backTo(null);
     }
 
     public void exit() {
         router.newRootScreen(Screens.LOGIN_SCREEN);
         clearSharedPreferences();
+        modeHolder.setMode(Mode.LOGIN);
         getViewState().loginMode();
     }
 
@@ -53,12 +61,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
                 .apply();
     }
 
-    public void returnToStart() {
-        router.backTo(Screens.START_SCREEN);
 
-    }
-
-    public void loadInitialFragment() {
+    private void loadInitialFragment() {
+        modeHolder.setMode(Mode.LOGIN);
+        getViewState().loginMode();
         String login = preferences.getString(Constants.SHARED_PREFERENCES_LOGIN_TAG, null);
         String password = preferences.getString(Constants.SHARED_PREFERENCES_PASS_TAG, null);
         if (login == null || password == null) {
@@ -69,9 +75,7 @@ public class MainPresenter extends MvpPresenter<MainView> {
     }
 
     public void getMode() {
-        String login = preferences.getString(Constants.SHARED_PREFERENCES_LOGIN_TAG, null);
-        String password = preferences.getString(Constants.SHARED_PREFERENCES_PASS_TAG, null);
-        if (login == null || password == null) {
+        if (modeHolder.getMode() == Mode.LOGIN) {
             getViewState().loginMode();
         } else {
             getViewState().normalMode();
