@@ -8,6 +8,7 @@ import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.commons.Constants;
+import com.example.thear.ecampus20.dagger.holder.TokenHolder;
 import com.example.thear.ecampus20.model.Token;
 import com.example.thear.ecampus20.presentation.view.main.SplashView;
 import com.example.thear.ecampus20.service.CampusApi;
@@ -35,6 +36,8 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
     CampusApi api;
     @Inject
     SharedPreferences preferences;
+    @Inject
+    TokenHolder tokenHolder;
 
     public SplashPresenter() {
         CampusApplication.getComponent().inject(this);
@@ -68,6 +71,7 @@ public class SplashPresenter extends MvpPresenter<SplashView> {
 
                     @Override
                     public void onNext(Token token) {
+                        tokenHolder.setToken(token);
                         getViewState().hideProgressDialog();
                         getViewState().onLoggedIn();
                         saveSharedPreferences(login, password);

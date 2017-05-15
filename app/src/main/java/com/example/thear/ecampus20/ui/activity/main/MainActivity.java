@@ -15,14 +15,16 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Utils;
+import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
 import com.example.thear.ecampus20.ui.fragment.main.BulletinsFragment;
-import com.example.thear.ecampus20.ui.fragment.main.DisciplineChoiceFragment;
 import com.example.thear.ecampus20.ui.fragment.main.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.main.RNPFragment;
 import com.example.thear.ecampus20.ui.fragment.main.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.main.StartFragment;
+import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DisciplineChoiceFragment;
+import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DoDCChoiceFragment;
 
 import javax.inject.Inject;
 
@@ -69,6 +71,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 }
                 case Screens.LOGIN_SCREEN: {
                     return LoginFragment.newInstance();
+                }
+                case Screens.DO_CHOICE_SCREEN: {
+                    return DoDCChoiceFragment.newInstance((Semestr) data);
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");

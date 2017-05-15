@@ -17,6 +17,8 @@ import ru.terrakok.cicerone.Router;
 @InjectViewState
 public class MainPresenter extends MvpPresenter<MainView> {
 
+    private static final String TAG = "MainPresenter";
+
     @Inject
     SharedPreferences preferences;
 

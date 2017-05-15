@@ -53,6 +53,12 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         Utils.setupUI(view, getActivity());
         ButterKnife.bind(this, view);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(final View view, final Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         loginTextInputLayout.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -85,13 +91,6 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
                 mLoginPresenter.validatePassword(s.toString());
             }
         });
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(final View view, final Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
     }
 
     @OnClick(R.id.loginButton)
