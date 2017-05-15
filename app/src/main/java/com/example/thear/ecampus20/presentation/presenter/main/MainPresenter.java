@@ -38,13 +38,18 @@ public class MainPresenter extends MvpPresenter<MainView> {
         loadInitialFragment();
     }
 
-    public void loadFragment(String screenName) {
-        router.navigateTo(screenName);
+    public void loadMenuFragment(String screenName) {
+        router.newScreenChain(screenName);
+    }
+
+    public void goToMainFragment() {
+        router.backTo(null);
     }
 
     public void exit() {
         router.newRootScreen(Screens.LOGIN_SCREEN);
         clearSharedPreferences();
+        modeHolder.setMode(Mode.LOGIN);
         getViewState().loginMode();
     }
 
