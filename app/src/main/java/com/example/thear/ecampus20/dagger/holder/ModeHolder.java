@@ -1,6 +1,6 @@
 package com.example.thear.ecampus20.dagger.holder;
 
-import com.example.thear.ecampus20.ui.activity.main.Mode;
+import com.example.thear.ecampus20.ui.activity.Mode;
 
 /**
  * Created by aleks on 16.05.2017.

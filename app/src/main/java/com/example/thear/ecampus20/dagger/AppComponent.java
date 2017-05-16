@@ -5,13 +5,14 @@ import com.example.thear.ecampus20.dagger.module.NavigatorModule;
 import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
 import com.example.thear.ecampus20.dagger.module.TokenModule;
-import com.example.thear.ecampus20.presentation.presenter.main.BulletinsPresenter;
-import com.example.thear.ecampus20.presentation.presenter.main.LoginPresenter;
-import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
-import com.example.thear.ecampus20.presentation.presenter.main.SplashPresenter;
-import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DisciplineChoicePresenter;
-import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DisciplineSemestrPresenter;
-import com.example.thear.ecampus20.ui.activity.main.MainActivity;
+import com.example.thear.ecampus20.presentation.presenter.BulletinsPresenter;
+import com.example.thear.ecampus20.presentation.presenter.LoginPresenter;
+import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
+import com.example.thear.ecampus20.presentation.presenter.SplashPresenter;
+
+import com.example.thear.ecampus20.presentation.presenter.discipline_choice.DisciplineChoicePresenter;
+import com.example.thear.ecampus20.presentation.presenter.discipline_choice.DisciplineSemestrPresenter;
+import com.example.thear.ecampus20.ui.activity.MainActivity;
 
 import javax.inject.Singleton;
 
