@@ -1,10 +1,9 @@
-package com.example.thear.ecampus20.presentation.presenter;
-
+package com.example.thear.ecampus20.presentation.presenter.bulletins;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
-import com.example.thear.ecampus20.presentation.view.BulletinsView;
+import com.example.thear.ecampus20.presentation.view.bulletins.BulletinsView;
 
 import javax.inject.Inject;
 

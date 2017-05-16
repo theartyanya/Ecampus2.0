@@ -1,4 +1,4 @@
-package com.example.thear.ecampus20.presentation.view;
+package com.example.thear.ecampus20.presentation.view.bulletins;
 
 import com.arellomobile.mvp.MvpView;
 

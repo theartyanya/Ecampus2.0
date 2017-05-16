@@ -18,7 +18,7 @@ import com.example.thear.ecampus20.commons.Utils;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.MainView;
-import com.example.thear.ecampus20.ui.fragment.BulletinsFragment;
+import com.example.thear.ecampus20.ui.fragment.bulletin.BulletinsFragment;
 import com.example.thear.ecampus20.ui.fragment.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.RNPFragment;
 import com.example.thear.ecampus20.ui.fragment.SplashFragment;

@@ -5,7 +5,7 @@ import com.example.thear.ecampus20.dagger.module.NavigatorModule;
 import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
 import com.example.thear.ecampus20.dagger.module.TokenModule;
-import com.example.thear.ecampus20.presentation.presenter.BulletinsPresenter;
+import com.example.thear.ecampus20.presentation.presenter.bulletins.BulletinsPresenter;
 import com.example.thear.ecampus20.presentation.presenter.LoginPresenter;
 import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
 import com.example.thear.ecampus20.presentation.presenter.SplashPresenter;
@@ -18,9 +18,6 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-/**
- * Created by aleks on 12.05.2017.
- */
 @Singleton
 @Component(modules = {
         NavigatorModule.class,
