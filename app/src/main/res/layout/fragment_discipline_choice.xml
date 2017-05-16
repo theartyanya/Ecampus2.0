@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.main.discipline_choice.DisciplineChoiceFragment">
+    tools:context=".ui.fragment.discipline_choice.DisciplineChoiceFragment">
 
     <ProgressBar
         android:id="@+id/disciplineChoiceProgressBar"
