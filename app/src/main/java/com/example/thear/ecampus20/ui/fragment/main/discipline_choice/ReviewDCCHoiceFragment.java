@@ -84,6 +84,7 @@ public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements Revi
             TextView dcCountTextView = ButterKnife.findById(convertView, R.id.dcItemDcCountTextView);
             dcCountTextView.setText(String.valueOf(block.getDisciplineCount()));
             LinearLayout linearLayout = ButterKnife.findById(convertView, R.id.dcItemLinLayout);
+            linearLayout.removeAllViews();
             for (BlockDisc b : block.getBlockDisc()) {
                 TextView textView = new TextView(getContext());
                 textView.setText(b.getNameUkr());
