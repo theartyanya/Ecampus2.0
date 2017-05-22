@@ -43,4 +43,17 @@ public class DisciplineSemestrPresenter extends MvpPresenter<DisciplineSemestrVi
             router.navigateTo(Screens.DO_CHOICE_SCREEN, chosenSemestr);
         }
     }
+
+    public void goReviewChoice(long semestr) {
+        Semestr chosenSemestr = null;
+        for (Semestr s : course.getSemestrs()) {
+            if (s.getSemester() == semestr) {
+                chosenSemestr = s;
+                break;
+            }
+        }
+        if (chosenSemestr != null) {
+            router.navigateTo(Screens.VIEW_CHOICE_SCREEN, chosenSemestr);
+        }
+    }
 }

@@ -8,9 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
@@ -20,26 +19,26 @@ import com.example.thear.ecampus20.commons.Constants;
 import com.example.thear.ecampus20.model.Block;
 import com.example.thear.ecampus20.model.BlockDisc;
 import com.example.thear.ecampus20.model.Semestr;
-import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DoDcchoicePresenter;
-import com.example.thear.ecampus20.presentation.view.main.discipline_choice.DoDcchoiceView;
+import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.ReviewDcchoicePresenter;
+import com.example.thear.ecampus20.presentation.view.main.discipline_choice.ReviewDcchoiceView;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoiceView {
+public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements ReviewDcchoiceView {
 
-    public static final String TAG = "DoDCChoiceFragment";
+    public static final String TAG = "ReviewDCCHoiceFragment";
 
     @InjectPresenter
-    DoDcchoicePresenter mDoDcchoicePresenter;
-    @BindView(R.id.doDcChoiceListView)
+    ReviewDcchoicePresenter mReviewDcchoicePresenter;
+    @BindView(R.id.reviewDcChoiceListView)
     ListView listView;
     private Semestr semestr;
 
-    public static DoDCChoiceFragment newInstance(Semestr semestr) {
-        DoDCChoiceFragment fragment = new DoDCChoiceFragment();
+    public static ReviewDCCHoiceFragment newInstance(Semestr semestr) {
+        ReviewDCCHoiceFragment fragment = new ReviewDCCHoiceFragment();
         Bundle args = new Bundle();
         args.putSerializable(Constants.DC_SEMESTER_KEY, semestr);
         fragment.setArguments(args);
@@ -52,11 +51,8 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
         if (getArguments() != null) {
             semestr = (Semestr) getArguments().getSerializable(Constants.DC_SEMESTER_KEY);
         }
-        View view = inflater.inflate(R.layout.fragment_do_dcchoice, container, false);
+        View view = inflater.inflate(R.layout.fragment_review_dcchoice, container, false);
         ButterKnife.bind(this, view);
-        View footerView = LayoutInflater.from(getContext())
-                .inflate(R.layout.footer_subjects, null);
-        listView.addFooterView(footerView);
         listView.setAdapter(new DiscArrayAdapter(getContext(), semestr.getBlocks()));
         return view;
     }
@@ -69,9 +65,8 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
 
     private class DiscArrayAdapter extends ArrayAdapter<Block> {
 
-        public DiscArrayAdapter(Context context, List<Block> list) {
-            super(context, 0, list);
-
+        public DiscArrayAdapter(Context context, List<Block> blocks) {
+            super(context, 0, blocks);
         }
 
         @NonNull
@@ -80,7 +75,7 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
             Block block = getItem(position);
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext())
-                        .inflate(R.layout.item_do_dc_choice, null);
+                        .inflate(R.layout.item_view_dc_choice, null);
             }
             TextView componentTextView = ButterKnife.findById(convertView, R.id.dcItemComponentTextView);
             componentTextView.setText(block.getComponent().getName());
@@ -88,28 +83,12 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
             blockTextView.setText(block.getBlock().getName());
             TextView dcCountTextView = ButterKnife.findById(convertView, R.id.dcItemDcCountTextView);
             dcCountTextView.setText(String.valueOf(block.getDisciplineCount()));
-            RadioGroup radioGroup = ButterKnife.findById(convertView, R.id.dcItemRadioGroup);
-            radioGroup.removeAllViews();
+            LinearLayout linearLayout = ButterKnife.findById(convertView, R.id.dcItemLinLayout);
             for (BlockDisc b : block.getBlockDisc()) {
-                RadioButton radioButton = new RadioButton(getContext());
-                radioButton.setText(b.getNameUkr());
-                radioGroup.addView(radioButton);
+                TextView textView = new TextView(getContext());
+                textView.setText(b.getNameUkr());
+                linearLayout.addView(textView);
             }
-            /*for (BlockDisc b : block.getBlockDisc()) {
-                View view = LayoutInflater.from(getContext())
-                        .inflate(R.layout.item_block_subject, null);
-                TextView divisionTextView = ButterKnife.findById(view, R.id.dcSubjectDivisionTextView);
-                divisionTextView.setText(b.getSubdivision());
-                TextView nameTextView = ButterKnife.findById(view, R.id.dcSubjectNameTextView);
-                nameTextView.setText(b.getNameUkr());
-                TextView descTextView = ButterKnife.findById(view, R.id.dcSubjectDescTextView);
-                descTextView.setText(b.getAnnotationEng());
-                TextView maxStudentsTextView = ButterKnife.findById(view, R.id.dcSubjectMaxStudentsTextView);
-                maxStudentsTextView.setText(String.valueOf(b.getMaxCountStudent()));
-                TextView studentsTextView = ButterKnife.findById(view, R.id.dcSubjectStudentsTextView);
-                studentsTextView.setText(String.valueOf(b.getStudentCount()));
-                layout.addView(view);
-            }*/
             return convertView;
         }
     }

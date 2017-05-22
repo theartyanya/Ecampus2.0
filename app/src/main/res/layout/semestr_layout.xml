@@ -51,5 +51,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/dc_go_to_choice" />
+
+        <Button
+            android:id="@+id/semestrReviewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/dc_view_choose" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

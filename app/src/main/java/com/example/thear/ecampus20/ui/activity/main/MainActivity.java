@@ -25,6 +25,7 @@ import com.example.thear.ecampus20.ui.fragment.main.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.main.StartFragment;
 import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DisciplineChoiceFragment;
 import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.DoDCChoiceFragment;
+import com.example.thear.ecampus20.ui.fragment.main.discipline_choice.ReviewDCCHoiceFragment;
 
 import javax.inject.Inject;
 
@@ -74,6 +75,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 }
                 case Screens.DO_CHOICE_SCREEN: {
                     return DoDCChoiceFragment.newInstance((Semestr) data);
+                }
+                case Screens.VIEW_CHOICE_SCREEN: {
+                    return ReviewDCCHoiceFragment.newInstance((Semestr) data);
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");

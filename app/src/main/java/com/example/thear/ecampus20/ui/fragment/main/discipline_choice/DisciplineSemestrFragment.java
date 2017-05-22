@@ -72,21 +72,31 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
                     mDisciplineSemestrPresenter.goDoDiscChoice(semestr.getSemester());
                 }
             });
+            Button reviewButton = ButterKnife.findById(view, R.id.semestrReviewButton);
+            reviewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mDisciplineSemestrPresenter.goReviewChoice(semestr.getSemester());
+                }
+            });
             String statusString = "";
             switch (semestr.getStatus()) {
                 case Constants.DC_STATUS_AVAILABLE: {
                     statusString = getString(R.string.dc_status_available);
                     chooseButton.setVisibility(View.VISIBLE);
+                    reviewButton.setVisibility(View.GONE);
                     break;
                 }
                 case Constants.DC_STATUS_UNAVAILABLE: {
                     statusString = getString(R.string.dc_status_unavailable);
                     chooseButton.setVisibility(View.GONE);
+                    reviewButton.setVisibility(View.GONE);
                     break;
                 }
                 case Constants.DC_STATUS_DONE: {
                     statusString = getString(R.string.dc_status_done);
                     chooseButton.setVisibility(View.GONE);
+                    reviewButton.setVisibility(View.VISIBLE);
                     break;
                 }
             }

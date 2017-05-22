@@ -35,4 +35,5 @@
     <string name="subject_item_max_students">Максимальна кількість студентів:</string>
     <string name="subject_item_students">Кількість студентів:</string>
     <string name="save_results">зберегти результати</string>
+    <string name="dc_view_choose">перуглянути</string>
 </resources>
