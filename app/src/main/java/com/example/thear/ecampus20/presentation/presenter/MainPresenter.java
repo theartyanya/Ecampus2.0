@@ -1,6 +1,5 @@
 package com.example.thear.ecampus20.presentation.presenter;
 
-
 import android.content.SharedPreferences;
 
 import com.arellomobile.mvp.InjectViewState;

@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.model.rnp.NpModel;
-import com.example.thear.ecampus20.ui.activity.Screens;
 
 import java.util.List;
 

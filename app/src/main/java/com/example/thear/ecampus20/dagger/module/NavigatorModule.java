@@ -8,9 +8,6 @@ import ru.terrakok.cicerone.Cicerone;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.Router;
 
-/**
- * Created by aleks on 12.05.2017.
- */
 @Module
 public class NavigatorModule {
     private Cicerone<Router> cicerone;

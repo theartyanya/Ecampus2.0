@@ -15,10 +15,6 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import rx.Observable;
 
-/**
- * Created by aleks on 14.05.2017.
- */
-
 public interface CampusApi {
     @FormUrlEncoded
     @Headers("Accept: application/json")

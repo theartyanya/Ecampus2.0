@@ -14,10 +14,6 @@ import com.example.thear.ecampus20.ui.fragment.discipline_choice.DisciplineSemes
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by aleks on 15.05.2017.
- */
-
 public class SemestrFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private List<Course> courseList = new ArrayList<>();

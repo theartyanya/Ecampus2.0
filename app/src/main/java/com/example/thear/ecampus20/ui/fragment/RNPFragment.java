@@ -10,13 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
-import com.example.thear.ecampus20.model.rnp.NpApi;
 import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.presenter.RnPresenter;
 import com.example.thear.ecampus20.presentation.view.RnView;
@@ -24,12 +22,6 @@ import com.example.thear.ecampus20.ui.adapter.NpRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RNPFragment extends MvpAppCompatFragment implements RnView {
     public static final String TAG = "RNPFragment";
@@ -76,25 +68,6 @@ public class RNPFragment extends MvpAppCompatFragment implements RnView {
         Menu navMenu = navView.getMenu();
         MenuItem menuItem = navMenu.findItem(R.id.navRNP);
         menuItem.setChecked(true);
-    }
-
-    void getData(final List<NpModel> list) {
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api-campus-kpi-ua.azurewebsites.net/")
-                .addConverterFactory(GsonConverterFactory.create()).build();
-        NpApi api = retrofit.create(NpApi.class);
-
-        api.getNp().enqueue(new Callback<List<NpModel>>() {
-            @Override
-            public void onResponse(Call<List<NpModel>> call, Response<List<NpModel>> response) {
-                list.addAll(response.body());
-                recyclerView.getAdapter().notifyDataSetChanged();
-            }
-
-            @Override
-            public void onFailure(Call<List<NpModel>> call, Throwable t) {
-                Toast.makeText(getContext(), "Sth go wrong", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

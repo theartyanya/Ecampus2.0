@@ -98,7 +98,5 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
     }
-
 }

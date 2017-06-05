@@ -10,10 +10,6 @@ import com.example.thear.ecampus20.dagger.module.ServiceModule;
 import com.example.thear.ecampus20.dagger.module.SharedPreferencesModule;
 import com.example.thear.ecampus20.dagger.module.TokenModule;
 
-/**
- * Created by aleks on 12.05.2017.
- */
-
 public class CampusApplication extends Application {
     private static AppComponent component;
 

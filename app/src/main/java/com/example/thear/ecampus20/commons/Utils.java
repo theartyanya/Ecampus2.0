@@ -18,10 +18,6 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.thear.ecampus20.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
-/**
- * Created by aleks on 09.05.2017.
- */
-
 public class Utils {
 
     public static void setupUI(View view, final AppCompatActivity activity) {

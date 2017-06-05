@@ -1,6 +1,5 @@
 package com.example.thear.ecampus20.presentation.presenter.discipline_choice;
 
-
 import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;

@@ -5,10 +5,6 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-/**
- * Created by aleks on 15.05.2017.
- */
-
 public class StudentInfo {
     @SerializedName("studyGroupId")
     @Expose

@@ -1,4 +1,3 @@
-
 package com.example.thear.ecampus20.model.rnp;
 
 import com.google.gson.annotations.Expose;

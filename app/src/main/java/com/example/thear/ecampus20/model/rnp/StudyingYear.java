@@ -1,10 +1,9 @@
-
 package com.example.thear.ecampus20.model.rnp;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class StudyingYear {
+class StudyingYear {
 
     @SerializedName("name")
     @Expose

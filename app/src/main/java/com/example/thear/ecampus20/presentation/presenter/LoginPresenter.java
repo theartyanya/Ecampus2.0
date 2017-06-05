@@ -1,6 +1,5 @@
 package com.example.thear.ecampus20.presentation.presenter;
 
-
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;

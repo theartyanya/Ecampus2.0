@@ -12,9 +12,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by aleks on 14.05.2017.
- */
 @Module
 public class ServiceModule {
     private Retrofit retrofit;
