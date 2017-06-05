@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-class Component {
+public class Component {
 
     @SerializedName("name")
     @Expose

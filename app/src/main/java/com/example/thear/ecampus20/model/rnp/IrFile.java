@@ -3,7 +3,7 @@ package com.example.thear.ecampus20.model.rnp;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class IrFile {
+public class IrFile {
 
     @SerializedName("name")
     @Expose
