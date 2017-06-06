@@ -5,22 +5,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.model.rnp.NpModel;
+import com.example.thear.ecampus20.presentation.presenter.RnPresenter;
 
 import java.util.List;
 
 public class NpRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<NpModel> npList;
-    public NpRecyclerViewAdapter(List<NpModel> npList) {
+    public NpRecyclerViewAdapter(List<NpModel> npList, RnPresenter presenter) {
         this.npList = npList;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new NpViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.np_list_item, parent, false));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.np_list_item, parent, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        return new NpViewHolder(view);
     }
 
     @Override
@@ -46,12 +53,6 @@ public class NpRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             form = (TextView) itemView.findViewById(R.id.np_list_study_form);
             actuality = (TextView) itemView.findViewById(R.id.np_list_actuality);
             date = (TextView) itemView.findViewById(R.id.np_list_date);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(v.getContext(), "Yo", Toast.LENGTH_SHORT).show();
-                }
-            });
         }
     }
 }

@@ -8,6 +8,7 @@ import com.example.thear.ecampus20.dagger.module.TokenModule;
 import com.example.thear.ecampus20.presentation.presenter.BulletinsPresenter;
 import com.example.thear.ecampus20.presentation.presenter.LoginPresenter;
 import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
+import com.example.thear.ecampus20.presentation.presenter.RnPresenter;
 import com.example.thear.ecampus20.presentation.presenter.SplashPresenter;
 
 import com.example.thear.ecampus20.presentation.presenter.discipline_choice.DisciplineChoicePresenter;
@@ -34,4 +35,5 @@ public interface AppComponent {
     void inject(BulletinsPresenter presenter);
     void inject(DisciplineChoicePresenter presenter);
     void inject(DisciplineSemestrPresenter presenter);
+    void inject(RnPresenter presenter);
 }

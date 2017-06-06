@@ -55,7 +55,7 @@ public class RNPFragment extends MvpAppCompatFragment implements RnView {
         RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(manager);
         recyclerView.addItemDecoration(new DividerItemDecoration(recyclerView.getContext(), DividerItemDecoration.VERTICAL));
-        NpRecyclerViewAdapter adapter = new NpRecyclerViewAdapter(npList);
+        NpRecyclerViewAdapter adapter = new NpRecyclerViewAdapter(npList, mRnPresenter);
         recyclerView.setAdapter(adapter);
 
         mRnPresenter.loadData(npList);
