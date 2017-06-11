@@ -16,13 +16,17 @@ import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Utils;
 import com.example.thear.ecampus20.model.Semestr;
+import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.MainView;
 import com.example.thear.ecampus20.ui.fragment.BulletinsFragment;
 import com.example.thear.ecampus20.ui.fragment.LoginFragment;
+import com.example.thear.ecampus20.ui.fragment.NpDetailFragment;
+import com.example.thear.ecampus20.ui.fragment.NpFilterFragment;
 import com.example.thear.ecampus20.ui.fragment.RNPFragment;
 import com.example.thear.ecampus20.ui.fragment.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.StartFragment;
+import com.example.thear.ecampus20.ui.fragment.ChoiceFragment;
 import com.example.thear.ecampus20.ui.fragment.discipline_choice.DisciplineChoiceFragment;
 import com.example.thear.ecampus20.ui.fragment.discipline_choice.DoDCChoiceFragment;
 
@@ -37,6 +41,7 @@ import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     public static final String TAG = "MainActivity";
+    Fragment npListFragment;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -75,6 +80,29 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 case Screens.DO_CHOICE_SCREEN: {
                     return DoDCChoiceFragment.newInstance((Semestr) data);
                 }
+                case Screens.NP_FILTER:
+                    return new NpFilterFragment();
+
+                case Screens.NP_DETAILS: {
+                    Fragment fragment = new NpDetailFragment();
+                    Bundle args = new Bundle();
+                    args.putString("Name", ((NpModel) data).getName());
+                    args.putString("Actuality", ((NpModel) data).getActuality() ? "Актуально" : "Не актуально");
+                    args.putString("Specialization", ((NpModel) data).getSpecialization().getName());
+                    args.putString("StudyYear", ((NpModel) data).getStudyingYear().getName());
+                    args.putString("StudyForm", ((NpModel) data).getStudyForm().getName());
+                    args.putString("ChangeDate", ((NpModel) data).getChangeDate());
+                    args.putString("Okr", ((NpModel) data).getOkr().getName());
+                    if (((NpModel) data).getStudyTermYear() != null)
+                        args.putInt("TermYear", ((NpModel) data).getStudyTermYear());
+                    if (((NpModel) data).getStudyTermMonth() != null)
+                        args.putInt("TermMonth", ((NpModel) data).getStudyTermMonth());
+                    fragment.setArguments(args);
+                    return fragment;
+                }
+                case Screens.NP_MODULES_SCREEN: {
+                    return new ChoiceFragment();
+                }
                 default:
                     throw new RuntimeException("Unknown screen key!");
             }
@@ -90,7 +118,6 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
             finish();
         }
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +176,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 break;
             }
             case R.id.navRNP: {
-                mMainPresenter.loadMenuFragment(Screens.RNP_SCREEN);
+                mMainPresenter.loadMenuFragment(Screens.NP_MODULES_SCREEN);
                 break;
             }
             case R.id.navExit: {
@@ -186,4 +213,17 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     private void openDrawer() {
         mDrawer.openDrawer(Gravity.START);
     }
+
+    public void setFragment(Fragment fragment) {
+        npListFragment = fragment;
+    }
+
+    /*@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && npListFragment != null && npListFragment instanceof RNPFragment) {
+            mMainPresenter.backToFilter();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
 }

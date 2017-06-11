@@ -35,4 +35,27 @@
     <string name="subject_item_max_students">Максимальна кількість студентів:</string>
     <string name="subject_item_students">Кількість студентів:</string>
     <string name="save_results">зберегти результати</string>
+
+    <string name="np_title">НП спеціалізацій</string>
+    <string name="np_faculty">Факультет</string>
+    <string name="np_cathedra">Кафедра</string>
+    <string name="np_specialty">Спеціальність</string>
+    <string name="np_specialization">Спеціалізація</string>
+    <string name="np_study_year">Навчальний рік</string>
+    <string name="np_okr">ОКР</string>
+    <string name="np_study_form">Форма навчання</string>
+    <string name="np_filter_selected_button">Показати результати</string>
+    <string name="np_details_name">Назва</string>
+    <string name="np_details_">Назва</string>
+    <string name="np_detail_date_change">Дата зміни</string>
+    <string name="np_details_actuality">Актуальність</string>
+    <string name="np_details_term_year">Термін рік</string>
+    <string name="np_details_term_month">Термін місяць</string>
+    <string name="np_details_header">Деталі</string>
+    <string name="no_value">Не вказано</string>
+
+    <string name="np_button">Нп</string>
+    <string name="discipline_button">Дисципліни</string>
+    <string name="credit_module_button">Кредитні модулі</string>
+
 </resources>

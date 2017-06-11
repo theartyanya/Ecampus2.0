@@ -7,6 +7,7 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.commons.Constants;
 import com.example.thear.ecampus20.dagger.holder.ModeHolder;
+import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.view.MainView;
 import com.example.thear.ecampus20.ui.activity.Mode;
 import com.example.thear.ecampus20.ui.activity.Screens;
@@ -36,6 +37,10 @@ public class MainPresenter extends MvpPresenter<MainView> {
         super.onFirstViewAttach();
         loadInitialFragment();
     }
+
+    /*public void backToFilter() {
+        router.navigateTo(Screens.NP_FILTER);
+    }*/
 
     public void loadMenuFragment(String screenName) {
         router.newScreenChain(screenName);

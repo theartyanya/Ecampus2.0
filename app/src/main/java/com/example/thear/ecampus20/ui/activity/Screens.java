@@ -1,9 +1,5 @@
 package com.example.thear.ecampus20.ui.activity;
 
-/**
- * Created by aleks on 13.05.2017.
- */
-
 public interface Screens {
     String START_SCREEN = "start";
     String BULLETINS_SCREEN = "bulletins";
@@ -12,4 +8,7 @@ public interface Screens {
     String SPLASH_SCREEN = "splash_screen";
     String LOGIN_SCREEN = "login_screen";
     String DO_CHOICE_SCREEN = "do_choice_screen";
+    String NP_DETAILS = "np_details";
+    String NP_FILTER = "np_filter";
+    String NP_MODULES_SCREEN = "Modules";
 }

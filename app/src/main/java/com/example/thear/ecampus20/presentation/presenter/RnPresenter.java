@@ -2,9 +2,12 @@ package com.example.thear.ecampus20.presentation.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.service.NpApi;
 import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.view.RnView;
+import com.example.thear.ecampus20.ui.activity.MainActivity;
+import com.example.thear.ecampus20.ui.activity.Screens;
 
 import java.util.List;
 
@@ -23,10 +26,14 @@ public class RnPresenter extends MvpPresenter<RnView> {
     @Inject
     Router router;
 
-    public void loadData(final List<NpModel> list) {
-        RxJavaCallAdapterFactory factory = RxJavaCallAdapterFactory.createWithScheduler(Schedulers.io());
+    public RnPresenter() {
+        CampusApplication.getComponent().inject(this);
+    }
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api-campus-kpi-ua.azurewebsites.net/")
+    public void loadData(final List<NpModel> list) {
+        RxJavaCallAdapterFactory factory = RxJavaCallAdapterFactory.create();
+
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://demo8458783.mockable.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(factory).build();
         NpApi api = retrofit.create(NpApi.class);
@@ -52,4 +59,11 @@ public class RnPresenter extends MvpPresenter<RnView> {
                     }
                 });
     }
+
+    public void openDetailsScreen(NpModel item) {
+        getViewState().unmapFragment();
+        router.navigateTo(Screens.NP_DETAILS, item);
+    }
+
+
 }
