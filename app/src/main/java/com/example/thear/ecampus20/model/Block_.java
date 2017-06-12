@@ -6,7 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-public class Block_ {
+import java.io.Serializable;
+
+public class Block_ implements Serializable {
 
     @SerializedName("name")
     @Expose
