@@ -40,4 +40,5 @@
     <string name="name">Ім\'я:</string>
     <string name="surname">Призвіще:</string>
     <string name="patronymic">По батькові:</string>
+    <string name="menu_edit">Редагувати</string>
 </resources>
