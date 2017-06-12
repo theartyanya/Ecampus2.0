@@ -86,7 +86,7 @@ public class DisciplineChoiceFragment extends MvpAppCompatFragment implements Di
 
     @Override
     public void initializeViewPager(List<Semestr> list) {
-        viewPager.setAdapter(new SemestrFragmentPagerAdapter(getFragmentManager(), list, getContext()));
+        viewPager.setAdapter(new SemestrFragmentPagerAdapter(getChildFragmentManager(), list, getContext()));
         tabLayout.setupWithViewPager(viewPager);
     }
 
