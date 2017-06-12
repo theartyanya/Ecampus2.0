@@ -64,4 +64,9 @@
     <string name="rnp_details_name">РНП</string>
     <string name="rnp_details_protocol">№ протоколу</string>
 
+    <string name="discipline_title">Довідник дисциплін</string>
+
+    <string name="credit_title">Довідник кредитних модулів</string>
+    <string name="credit_discipline">Дисципліна</string>
+
 </resources>

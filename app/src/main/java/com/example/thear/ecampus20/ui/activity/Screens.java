@@ -14,4 +14,8 @@ public interface Screens {
     String RNP_FILTER = "rnp_filter";
     String RNP_SCREEN = "rnp_screen";
     String RNP_DETAILS = "rnp_details";
+    String DISCIPLINE_FILTER = "discipline_filter";
+    String DISCIPLINE_SCREEN = "discipline_screen";
+    String CREDIT_FILTER = "credit_filter";
+    String CREDIT_SCREEN = "credit_screen";
 }

@@ -21,6 +21,10 @@ import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.MainView;
 import com.example.thear.ecampus20.ui.fragment.BulletinsFragment;
+import com.example.thear.ecampus20.ui.fragment.CreditFilterFragment;
+import com.example.thear.ecampus20.ui.fragment.CreditFragment;
+import com.example.thear.ecampus20.ui.fragment.DisciplineFilterFragment;
+import com.example.thear.ecampus20.ui.fragment.DisciplineFragment;
 import com.example.thear.ecampus20.ui.fragment.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.NpDetailFragment;
 import com.example.thear.ecampus20.ui.fragment.NpFilterFragment;
@@ -129,6 +133,18 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                         args.putInt("Course", ((RnpModel) data).getCourse());
                     fragment.setArguments(args);
                     return fragment;
+                }
+                case Screens.DISCIPLINE_FILTER: {
+                    return new DisciplineFilterFragment();
+                }
+                case Screens.DISCIPLINE_SCREEN: {
+                    return new DisciplineFragment();
+                }
+                case Screens.CREDIT_FILTER: {
+                    return new CreditFilterFragment();
+                }
+                case Screens.CREDIT_SCREEN: {
+                    return new CreditFragment();
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");
@@ -244,13 +260,4 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     public void setFragment(Fragment fragment) {
         npListFragment = fragment;
     }
-
-    /*@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && npListFragment != null && npListFragment instanceof NpFragment) {
-            mMainPresenter.backToFilter();
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
-    }*/
 }
