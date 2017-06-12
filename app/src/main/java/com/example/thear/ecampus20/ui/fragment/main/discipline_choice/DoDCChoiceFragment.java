@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
@@ -52,13 +55,22 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
         if (getArguments() != null) {
             semestr = (Semestr) getArguments().getSerializable(Constants.DC_SEMESTER_KEY);
         }
+        setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_do_dcchoice, container, false);
         ButterKnife.bind(this, view);
-        View footerView = LayoutInflater.from(getContext())
-                .inflate(R.layout.footer_subjects, null);
-        listView.addFooterView(footerView);
         listView.setAdapter(new DiscArrayAdapter(getContext(), semestr.getBlocks()));
+        setupTitle();
         return view;
+    }
+
+    private void setupTitle() {
+        MvpAppCompatActivity activity = (MvpAppCompatActivity) getActivity();
+        activity.getSupportActionBar().setTitle(R.string.choose_disc);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_do_choice, menu);
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,7 @@ public class DisciplineChoiceFragment extends MvpAppCompatFragment implements Di
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discipline_choice, container, false);
+        setHasOptionsMenu(true);
         ButterKnife.bind(this, view);
         tabLayout = ButterKnife.findById(getActivity(), R.id.tabLayout);
         setupNavigation();
@@ -59,6 +61,11 @@ public class DisciplineChoiceFragment extends MvpAppCompatFragment implements Di
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_discipline, menu);
     }
 
     private void setupNavigation() {

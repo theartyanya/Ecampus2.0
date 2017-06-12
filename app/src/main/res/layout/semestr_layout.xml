@@ -10,38 +10,38 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/textViewStyle"
+            style="@style/textViewStyle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dc_year" />
 
         <TextView
             android:id="@+id/semestrStudyYearTextView"
-            style="@style/textViewStyle1"
+            style="@style/textViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            style="@style/textViewStyle"
+            style="@style/textViewStyle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dc_semestr" />
 
         <TextView
             android:id="@+id/semestrStudySemestrTextView"
-            style="@style/textViewStyle1"
+            style="@style/textViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <TextView
-            style="@style/textViewStyle"
+            style="@style/textViewStyle1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dc_status" />
 
         <TextView
             android:id="@+id/semestrStudyStatusTextView"
-            style="@style/textViewStyle1"
+            style="@style/textViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />

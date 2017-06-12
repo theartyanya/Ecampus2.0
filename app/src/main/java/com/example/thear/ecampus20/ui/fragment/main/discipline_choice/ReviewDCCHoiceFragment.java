@@ -1,28 +1,22 @@
 package com.example.thear.ecampus20.ui.fragment.main.discipline_choice;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
 
+import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Constants;
-import com.example.thear.ecampus20.model.Block;
-import com.example.thear.ecampus20.model.BlockDisc;
+import com.example.thear.ecampus20.commons.Utils;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.ReviewDcchoicePresenter;
 import com.example.thear.ecampus20.presentation.view.main.discipline_choice.ReviewDcchoiceView;
-
-import java.util.List;
+import com.fondesa.recyclerviewdivider.RecyclerViewDivider;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,9 +27,10 @@ public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements Revi
 
     @InjectPresenter
     ReviewDcchoicePresenter mReviewDcchoicePresenter;
-    @BindView(R.id.reviewDcChoiceListView)
-    ListView listView;
+    @BindView(R.id.reviewDcChoiceRecyclerView)
+    RecyclerView recyclerView;
     private Semestr semestr;
+    private ReviewDCAdapter adapter;
 
     public static ReviewDCCHoiceFragment newInstance(Semestr semestr) {
         ReviewDCCHoiceFragment fragment = new ReviewDCCHoiceFragment();
@@ -53,7 +48,16 @@ public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements Revi
         }
         View view = inflater.inflate(R.layout.fragment_review_dcchoice, container, false);
         ButterKnife.bind(this, view);
-        listView.setAdapter(new DiscArrayAdapter(getContext(), semestr.getBlocks()));
+        adapter = new ReviewDCAdapter(semestr.getBlocks(), getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        RecyclerViewDivider.with(getContext())
+                .asSpace()
+                .size((int) Utils.convertDpToPixel(8, getContext()))
+                .hideLastDivider()
+                .build()
+                .addTo(recyclerView);
+        setupTitle();
         return view;
     }
 
@@ -63,7 +67,12 @@ public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements Revi
 
     }
 
-    private class DiscArrayAdapter extends ArrayAdapter<Block> {
+    private void setupTitle() {
+        MvpAppCompatActivity activity = (MvpAppCompatActivity) getActivity();
+        activity.getSupportActionBar().setTitle(R.string.chosen_disc);
+    }
+
+    /*private class DiscArrayAdapter extends ArrayAdapter<Block> {
 
         public DiscArrayAdapter(Context context, List<Block> blocks) {
             super(context, 0, blocks);
@@ -92,5 +101,5 @@ public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements Revi
             }
             return convertView;
         }
-    }
+    }*/
 }

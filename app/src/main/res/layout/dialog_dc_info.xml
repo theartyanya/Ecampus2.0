@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/textViewStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_ukr" />
+
+    <TextView
+        android:id="@+id/dcInfoNameUkrTextView"
+        style="@style/textViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/textViewStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_eng" />
+
+    <TextView
+        android:id="@+id/dcInfoNameEngTextView"
+        style="@style/textViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/textViewStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subdivision" />
+
+    <TextView
+        android:id="@+id/dcInfoSubdivisionTextView"
+        style="@style/textViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -36,9 +36,17 @@
     <string name="subject_item_max_students">Максимальна кількість студентів:</string>
     <string name="subject_item_students">Кількість студентів:</string>
     <string name="save_results">зберегти результати</string>
-    <string name="dc_view_choose">перуглянути</string>
+    <string name="dc_view_choose">переглянути</string>
     <string name="name">Ім\'я:</string>
     <string name="surname">Призвіще:</string>
     <string name="patronymic">По батькові:</string>
     <string name="menu_edit">Редагувати</string>
+    <string name="moderator_mode">Режим Модератора</string>
+    <string name="submit">Підтвердити</string>
+    <string name="choose_disc">Оберіть Дисципліни</string>
+    <string name="chosen_disc">Обрані дисципліни</string>
+    <string name="subdivision">Підрозділ:</string>
+    <string name="name_ukr">Назва(укр)</string>
+    <string name="name_eng">Назва(англ)</string>
+    <string name="dc_info_title">Детальна інформація</string>
 </resources>
