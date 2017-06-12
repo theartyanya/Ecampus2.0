@@ -10,7 +10,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -34,7 +34,7 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     @BindView(R.id.loginPasswordTextInputLayout)
     TextInputLayout passwordTextInputLayout;
     @BindView(R.id.loginButton)
-    Button loginButton;
+    TextView loginButton;
 
     private ProgressDialog progressDialog;
 
