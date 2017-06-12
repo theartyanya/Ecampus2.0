@@ -10,6 +10,7 @@
     <string name="nav_main">Головна</string>
     <string name="nav_exit">Вихід</string>
     <string name="nav_rnp">РНП</string>
+    <string name="nav_profile">Профіль користувача</string>
     <string name="main_direction">Напрям:</string>
     <string name="main_study_level">Освітній рівень:</string>
     <string name="main_course">Курс:</string>
@@ -36,4 +37,7 @@
     <string name="subject_item_students">Кількість студентів:</string>
     <string name="save_results">зберегти результати</string>
     <string name="dc_view_choose">перуглянути</string>
+    <string name="name">Ім\'я:</string>
+    <string name="surname">Призвіще:</string>
+    <string name="patronymic">По батькові:</string>
 </resources>

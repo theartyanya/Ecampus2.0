@@ -20,6 +20,7 @@ import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
 import com.example.thear.ecampus20.ui.fragment.main.BulletinsFragment;
 import com.example.thear.ecampus20.ui.fragment.main.LoginFragment;
+import com.example.thear.ecampus20.ui.fragment.main.ProfileFragment;
 import com.example.thear.ecampus20.ui.fragment.main.RNPFragment;
 import com.example.thear.ecampus20.ui.fragment.main.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.main.StartFragment;
@@ -35,7 +36,7 @@ import ru.terrakok.cicerone.Navigator;
 import ru.terrakok.cicerone.NavigatorHolder;
 import ru.terrakok.cicerone.android.SupportFragmentNavigator;
 
-public class MainActivity extends MvpAppCompatActivity implements MainView {
+public class MainActivity extends MvpAppCompatActivity implements MainView, View.OnClickListener {
 
     public static final String TAG = "MainActivity";
 
@@ -79,6 +80,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 case Screens.VIEW_CHOICE_SCREEN: {
                     return ReviewDCCHoiceFragment.newInstance((Semestr) data);
                 }
+                case Screens.PROFILE: {
+                    return ProfileFragment.newInstance();
+                }
                 default:
                     throw new RuntimeException("Unknown screen key!");
             }
@@ -106,6 +110,12 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         initializeToolbar();
         setupDrawerContent();
         mMainPresenter.getMode();
+        nvDrawer.getHeaderView(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMainPresenter.loadMenuFragment(Screens.PROFILE);
+            }
+        });
     }
 
     @Override
@@ -189,5 +199,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     private void openDrawer() {
         mDrawer.openDrawer(Gravity.START);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

@@ -12,7 +12,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@android:color/darker_gray" />
+        android:src="@drawable/avatar_placeholder" />
 
     <TextView
         android:layout_width="match_parent"
