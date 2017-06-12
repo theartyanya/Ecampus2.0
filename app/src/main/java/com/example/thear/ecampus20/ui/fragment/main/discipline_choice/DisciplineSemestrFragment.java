@@ -13,6 +13,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Constants;
+import com.example.thear.ecampus20.commons.Utils;
 import com.example.thear.ecampus20.model.Course;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DisciplineSemestrPresenter;
@@ -101,7 +102,9 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
                 }
             }
             studyStatustextView.setText(statusString);
-            linearLayout.addView(view);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.setMargins(0, 0, 0, (int) Utils.convertDpToPixel(16, getContext()));
+            linearLayout.addView(view, params);
         }
     }
 
