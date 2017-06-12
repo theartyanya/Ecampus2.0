@@ -3,9 +3,9 @@ package com.example.thear.ecampus20.presentation.presenter;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 import com.example.thear.ecampus20.CampusApplication;
+import com.example.thear.ecampus20.model.RnpModel;
+import com.example.thear.ecampus20.presentation.view.RnpView;
 import com.example.thear.ecampus20.service.CampusApi;
-import com.example.thear.ecampus20.model.rnp.NpModel;
-import com.example.thear.ecampus20.presentation.view.RnView;
 import com.example.thear.ecampus20.ui.activity.Screens;
 
 import java.util.List;
@@ -21,47 +21,46 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 @InjectViewState
-public class RnPresenter extends MvpPresenter<RnView> {
+public class RnpPresenter extends MvpPresenter<RnpView> {
     @Inject
     Router router;
 
-    public RnPresenter() {
+    public RnpPresenter() {
         CampusApplication.getComponent().inject(this);
     }
 
-    public void loadData(final List<NpModel> list) {
+    public void loadData(final List<RnpModel> items) {
         RxJavaCallAdapterFactory factory = RxJavaCallAdapterFactory.create();
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("http://demo8458783.mockable.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(factory).build();
+
         CampusApi api = retrofit.create(CampusApi.class);
 
-        api.getNp()
+        api.getRnp()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<List<NpModel>>() {
-                    @Override
-                    public void onCompleted() {
+                .subscribe(new Subscriber<List<RnpModel>>() {
+            @Override
+            public void onCompleted() {
 
-                    }
+            }
 
-                    @Override
-                    public void onError(Throwable e) {
+            @Override
+            public void onError(Throwable e) {
 
-                    }
+            }
 
-                    @Override
-                    public void onNext(List<NpModel> npList) {
-                        list.addAll(npList);
-                        getViewState().updateView();
-                    }
-                });
+            @Override
+            public void onNext(List<RnpModel> rnpModels) {
+                items.addAll(rnpModels);
+                getViewState().updateView();
+            }
+        });
     }
 
-    public void openDetailsScreen(NpModel item) {
-        router.navigateTo(Screens.NP_DETAILS, item);
+    public void moveToDetails(RnpModel model) {
+        router.navigateTo(Screens.RNP_DETAILS, model);
     }
-
-
 }

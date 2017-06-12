@@ -36,4 +36,9 @@ public class ChoiceFragment extends MvpAppCompatFragment implements ModuleChoice
     void moveToNp() {
         presenter.moveTo(Screens.NP_FILTER);
     }
+
+    @OnClick(R.id.button_rnp)
+    void moveToRnp() {
+        presenter.moveTo(Screens.RNP_FILTER);
+    }
 }

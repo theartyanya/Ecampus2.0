@@ -15,8 +15,8 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
-import com.example.thear.ecampus20.presentation.presenter.NpFilterPresenter;
-import com.example.thear.ecampus20.presentation.view.NpFilterView;
+import com.example.thear.ecampus20.presentation.presenter.RnpFilterPresenter;
+import com.example.thear.ecampus20.presentation.view.RnpFilterView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,40 +25,35 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class NpFilterFragment extends MvpAppCompatFragment implements NpFilterView {
+public class RnpFilterFragment extends MvpAppCompatFragment implements RnpFilterView {
     @InjectPresenter
-    NpFilterPresenter mPresenter;
-    @BindView(R.id.np_faculty)
-    Spinner mFacultySpinner;
-    @BindView(R.id.np_cathedra)
+    RnpFilterPresenter presenter;
+    @BindView(R.id.rnp_cathedra)
     Spinner mCathedraSpinner;
-    @BindView(R.id.np_specialty)
+    @BindView(R.id.rnp_specialty)
     Spinner mSpecialtySpinner;
-    @BindView(R.id.np_specialization)
+    @BindView(R.id.rnp_specialization)
     Spinner mSpecializationSpinner;
-    @BindView(R.id.np_study_year)
+    @BindView(R.id.rnp_study_year)
     Spinner mStudyYearSpinner;
-    @BindView(R.id.np_okr)
+    @BindView(R.id.rnp_okr)
     Spinner mOkrSpinner;
-    @BindView(R.id.np_study_form)
+    @BindView(R.id.rnp_study_form)
     Spinner mStudyFormSpinner;
+    @BindView(R.id.rnp_course)
+    Spinner mCourseSpinner;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.np_filter, container, false);
+        return inflater.inflate(R.layout.rnp_filter, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         setupNavigation();
-
-        List<String> faculties = new ArrayList<>();
-        faculties.add("Оберіть факультет");
-        ArrayAdapter<String> facultyAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, faculties);
-        facultyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mFacultySpinner.setAdapter(facultyAdapter);
 
         List<String> cathedras = new ArrayList<>();
         cathedras.add("Оберіть кафедру");
@@ -95,16 +90,22 @@ public class NpFilterFragment extends MvpAppCompatFragment implements NpFilterVi
         ArrayAdapter<String> formAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, forms);
         formAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mStudyFormSpinner.setAdapter(formAdapter);
+
+        List<String> courses = new ArrayList<>();
+        courses.add("Оберіть курс");
+        ArrayAdapter<String> courseAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_dropdown_item, courses);
+        courseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mCourseSpinner.setAdapter(courseAdapter);
     }
 
-    @OnClick(R.id.np_filters_selected_button)
-    void onFiltersSelected() {
-        mPresenter.moveToNpList();
+    @OnClick(R.id.rnp_filters_selected_button)
+    public void onRnpFiltersSelected() {
+        presenter.showRnp();
     }
 
     private void setupNavigation() {
         MvpAppCompatActivity activity = (MvpAppCompatActivity) getActivity();
-        activity.getSupportActionBar().setTitle(getString(R.string.nav_np));
+        activity.getSupportActionBar().setTitle(getString(R.string.nav_rnp));
         NavigationView navView = (NavigationView) activity.findViewById(R.id.navView);
         Menu navMenu = navView.getMenu();
         MenuItem menuItem = navMenu.findItem(R.id.navRNP);

@@ -11,6 +11,9 @@ import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
 import com.example.thear.ecampus20.presentation.presenter.ModuleChoicePresenter;
 import com.example.thear.ecampus20.presentation.presenter.NpFilterPresenter;
 import com.example.thear.ecampus20.presentation.presenter.RnPresenter;
+import com.example.thear.ecampus20.presentation.presenter.RnpDetailPresenter;
+import com.example.thear.ecampus20.presentation.presenter.RnpFilterPresenter;
+import com.example.thear.ecampus20.presentation.presenter.RnpPresenter;
 import com.example.thear.ecampus20.presentation.presenter.SplashPresenter;
 
 import com.example.thear.ecampus20.presentation.presenter.discipline_choice.DisciplineChoicePresenter;
@@ -40,4 +43,7 @@ public interface AppComponent {
     void inject(RnPresenter presenter);
     void inject(NpFilterPresenter presenter);
     void inject(ModuleChoicePresenter presenter);
+    void inject(RnpFilterPresenter presenter);
+    void inject(RnpPresenter presenter);
+    void inject(RnpDetailPresenter presenter);
 }

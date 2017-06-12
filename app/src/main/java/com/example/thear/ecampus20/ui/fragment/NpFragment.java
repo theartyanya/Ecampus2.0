@@ -1,22 +1,15 @@
 package com.example.thear.ecampus20.ui.fragment;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
@@ -26,23 +19,20 @@ import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.presenter.RnPresenter;
 import com.example.thear.ecampus20.presentation.view.RnView;
-import com.example.thear.ecampus20.ui.activity.MainActivity;
 import com.example.thear.ecampus20.ui.adapter.NpRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.OnClick;
-
-public class RNPFragment extends MvpAppCompatFragment implements RnView {
-    public static final String TAG = "RNPFragment";
+public class NpFragment extends MvpAppCompatFragment implements RnView {
+    public static final String TAG = "NpFragment";
     List<NpModel> npList = new ArrayList<>();
     RecyclerView recyclerView;
     @InjectPresenter
     RnPresenter mRnPresenter;
 
-    public static RNPFragment newInstance() {
-        RNPFragment fragment = new RNPFragment();
+    public static NpFragment newInstance() {
+        NpFragment fragment = new NpFragment();
 
         Bundle args = new Bundle();
         fragment.setArguments(args);
@@ -53,7 +43,7 @@ public class RNPFragment extends MvpAppCompatFragment implements RnView {
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_rnp, container, false);
+        View view = inflater.inflate(R.layout.fragment_np, container, false);
         setupNavigation();
 
         return view;
@@ -79,24 +69,8 @@ public class RNPFragment extends MvpAppCompatFragment implements RnView {
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapFragment();
-    }
-
     public void showToast(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void mapFragment() {
-        ((MainActivity) getActivity()).setFragment(this);
-    }
-
-    @Override
-    public void unmapFragment() {
-        ((MainActivity) getActivity()).setFragment(null);
     }
 
     private void setupNavigation() {

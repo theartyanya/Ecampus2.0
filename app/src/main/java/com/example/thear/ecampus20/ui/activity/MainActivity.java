@@ -15,6 +15,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.CampusApplication;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Utils;
+import com.example.thear.ecampus20.model.RnpModel;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.model.rnp.NpModel;
 import com.example.thear.ecampus20.presentation.presenter.MainPresenter;
@@ -23,7 +24,10 @@ import com.example.thear.ecampus20.ui.fragment.BulletinsFragment;
 import com.example.thear.ecampus20.ui.fragment.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.NpDetailFragment;
 import com.example.thear.ecampus20.ui.fragment.NpFilterFragment;
-import com.example.thear.ecampus20.ui.fragment.RNPFragment;
+import com.example.thear.ecampus20.ui.fragment.NpFragment;
+import com.example.thear.ecampus20.ui.fragment.RnpDetailFragment;
+import com.example.thear.ecampus20.ui.fragment.RnpFilterFragment;
+import com.example.thear.ecampus20.ui.fragment.RnpFragment;
 import com.example.thear.ecampus20.ui.fragment.SplashFragment;
 import com.example.thear.ecampus20.ui.fragment.StartFragment;
 import com.example.thear.ecampus20.ui.fragment.ChoiceFragment;
@@ -68,8 +72,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 case Screens.DISCIPLINE_CHOICE_SCREEN: {
                     return DisciplineChoiceFragment.newInstance();
                 }
-                case Screens.RNP_SCREEN: {
-                    return RNPFragment.newInstance();
+                case Screens.NP_SCREEN: {
+                    return NpFragment.newInstance();
                 }
                 case Screens.SPLASH_SCREEN: {
                     return SplashFragment.newInstance();
@@ -102,6 +106,29 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
                 }
                 case Screens.NP_MODULES_SCREEN: {
                     return new ChoiceFragment();
+                }
+                case Screens.RNP_FILTER: {
+                    return new RnpFilterFragment();
+                }
+                case Screens.RNP_SCREEN: {
+                    return new RnpFragment();
+                }
+                case Screens.RNP_DETAILS: {
+                    Fragment fragment = new RnpDetailFragment();
+                    Bundle args = new Bundle();
+                    args.putString("Name", ((RnpModel) data).getName());
+                    args.putString("Actuality", ((RnpModel) data).getActuality() ? "Актуально" : "Не актуально");
+                    args.putString("Specialization", ((RnpModel) data).getSpeciality());
+                    args.putString("StudyYear", ((RnpModel) data).getYearRnp());
+                    args.putString("StudyForm", ((RnpModel) data).getStudyForm());
+                    args.putString("ChangeDate", ((RnpModel) data).getChangeDate());
+                    args.putString("Okr", ((RnpModel) data).getOkr());
+                    if (((RnpModel) data).getProtocolNumber() != null)
+                        args.putString("Protocol", ((RnpModel) data).getProtocolNumber());
+                    if (((RnpModel) data).getCourse() != null)
+                        args.putInt("Course", ((RnpModel) data).getCourse());
+                    fragment.setArguments(args);
+                    return fragment;
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");
@@ -220,7 +247,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     /*@Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && npListFragment != null && npListFragment instanceof RNPFragment) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && npListFragment != null && npListFragment instanceof NpFragment) {
             mMainPresenter.backToFilter();
             return true;
         }

@@ -1,8 +1,10 @@
 package com.example.thear.ecampus20.service;
 
+import com.example.thear.ecampus20.model.RnpModel;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.model.StudentInfo;
 import com.example.thear.ecampus20.model.Token;
+import com.example.thear.ecampus20.model.rnp.NpModel;
 
 import java.util.List;
 import java.util.Map;
@@ -28,4 +30,10 @@ public interface CampusApi {
     @Headers("Accept: application/json")
     @GET("SelectiveDiscipline/semesters/disciplines")
     Observable<List<Semestr>> getDisciplines(@Header("Authorization") String token);
+
+    @GET("/Np")
+    Observable<List<NpModel>> getNp();
+
+    @GET("RNP/Np")
+    Observable<List<RnpModel>> getRnp();
 }

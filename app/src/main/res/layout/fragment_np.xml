@@ -1,13 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/primary_light"
     android:padding="12dp"
-    tools:context=".ui.fragment.RnpFragment">
+    tools:context=".ui.fragment.NpFragment">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rnp_recycler_view"
+        android:id="@+id/np_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cardview_light_background"/>

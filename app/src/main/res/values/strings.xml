@@ -10,13 +10,14 @@
     <string name="nav_main">Головна</string>
     <string name="nav_exit">Вихід</string>
     <string name="nav_rnp">РНП</string>
+    <string name="nav_np">НП</string>
     <string name="main_direction">Напрям:</string>
     <string name="main_study_level">Освітній рівень:</string>
     <string name="main_course">Курс:</string>
     <string name="main_group">Группа:</string>
     <string name="main_start_year">Рік зарахування:</string>
     <string name="main_current_year">Поточний навчальний рік:</string>
-    <string name="course">курс</string>
+    <string name="course">Курс</string>
     <string name="semestr">семестр</string>
     <string name="dc_year">Навчальний рік</string>
     <string name="dc_semestr">Семестр</string>
@@ -57,5 +58,10 @@
     <string name="np_button">Нп</string>
     <string name="discipline_button">Дисципліни</string>
     <string name="credit_module_button">Кредитні модулі</string>
+
+    <string name="rnp_title">Робочі навчальні плани</string>
+    <string name="rnp_course">Курс</string>
+    <string name="rnp_details_name">РНП</string>
+    <string name="rnp_details_protocol">№ протоколу</string>
 
 </resources>
