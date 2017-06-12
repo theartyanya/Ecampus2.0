@@ -24,7 +24,7 @@
     <string name="dc_status_available">Вибір доступний</string>
     <string name="dc_status_done">Вибір зроблений</string>
     <string name="dc_status_unavailable">Вибір не доступний</string>
-    <string name="dc_go_to_choice">перейти до вибору</string>
+    <string name="dc_go_to_choice">обрати</string>
     <string name="dc_item_component_name">Назва компоненту:</string>
     <string name="dc_item_block_name">Назва блоку:</string>
     <string name="dc_item_disciplines">Дисципліни:</string>

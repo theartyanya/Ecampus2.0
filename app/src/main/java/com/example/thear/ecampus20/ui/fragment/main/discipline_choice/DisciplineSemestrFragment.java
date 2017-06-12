@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -66,14 +65,14 @@ public class DisciplineSemestrFragment extends MvpAppCompatFragment implements D
             TextView studySemestrTextView = ButterKnife.findById(view, R.id.semestrStudySemestrTextView);
             studySemestrTextView.setText(String.valueOf(semestr.getSemester()));
             TextView studyStatustextView = ButterKnife.findById(view, R.id.semestrStudyStatusTextView);
-            Button chooseButton = ButterKnife.findById(view, R.id.semestrChooseButton);
+            LinearLayout chooseButton = ButterKnife.findById(view, R.id.semestrChooseButton);
             chooseButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mDisciplineSemestrPresenter.goDoDiscChoice(semestr.getSemester());
                 }
             });
-            Button reviewButton = ButterKnife.findById(view, R.id.semestrReviewButton);
+            LinearLayout reviewButton = ButterKnife.findById(view, R.id.semestrReviewButton);
             reviewButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
