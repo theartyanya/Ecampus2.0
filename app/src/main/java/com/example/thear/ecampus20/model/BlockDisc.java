@@ -43,6 +43,7 @@ public class BlockDisc implements Serializable {
     @SerializedName("studentCount")
     @Expose
     private long studentCount;
+    private boolean isChecked = false;
 
     public long getCDisciplineBlockYear8Id() {
         return cDisciplineBlockYear8Id;
@@ -137,4 +138,11 @@ public class BlockDisc implements Serializable {
         return ToStringBuilder.reflectionToString(this);
     }
 
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
 }

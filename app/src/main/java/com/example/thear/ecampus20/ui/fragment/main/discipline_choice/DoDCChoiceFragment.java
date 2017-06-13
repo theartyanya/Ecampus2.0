@@ -1,32 +1,28 @@
 package com.example.thear.ecampus20.ui.fragment.main.discipline_choice;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Constants;
+import com.example.thear.ecampus20.commons.Utils;
 import com.example.thear.ecampus20.model.Block;
 import com.example.thear.ecampus20.model.BlockDisc;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DoDcchoicePresenter;
 import com.example.thear.ecampus20.presentation.view.main.discipline_choice.DoDcchoiceView;
-
-import java.util.List;
+import com.fondesa.recyclerviewdivider.RecyclerViewDivider;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,9 +33,10 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
 
     @InjectPresenter
     DoDcchoicePresenter mDoDcchoicePresenter;
-    @BindView(R.id.doDcChoiceListView)
-    ListView listView;
+    @BindView(R.id.doDcChoiceRecyclerView)
+    RecyclerView recyclerView;
     private Semestr semestr;
+    private ChoiceDCAdapter adapter;
 
     public static DoDCChoiceFragment newInstance(Semestr semestr) {
         DoDCChoiceFragment fragment = new DoDCChoiceFragment();
@@ -58,7 +55,15 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
         setHasOptionsMenu(true);
         View view = inflater.inflate(R.layout.fragment_do_dcchoice, container, false);
         ButterKnife.bind(this, view);
-        listView.setAdapter(new DiscArrayAdapter(getContext(), semestr.getBlocks()));
+        adapter = new ChoiceDCAdapter(semestr.getBlocks(), getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        RecyclerViewDivider.with(getContext())
+                .asSpace()
+                .size((int) Utils.convertDpToPixel(8, getContext()))
+                .hideLastDivider()
+                .build()
+                .addTo(recyclerView);
         setupTitle();
         return view;
     }
@@ -74,55 +79,35 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuDoChoiceAccept: {
+                Log.d("mytag", checkBlocks() + "");
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
     }
 
-    private class DiscArrayAdapter extends ArrayAdapter<Block> {
-
-        public DiscArrayAdapter(Context context, List<Block> list) {
-            super(context, 0, list);
-
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            Block block = getItem(position);
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getContext())
-                        .inflate(R.layout.item_do_dc_choice, null);
+    private boolean checkBlocks() {
+        for (Block b : semestr.getBlocks()) {
+            boolean flag = false;
+            for (BlockDisc dc : b.getBlockDisc()) {
+                if (dc.isChecked()) {
+                    flag = true;
+                    break;
+                }
             }
-            TextView componentTextView = ButterKnife.findById(convertView, R.id.dcItemComponentTextView);
-            componentTextView.setText(block.getComponent().getName());
-            TextView blockTextView = ButterKnife.findById(convertView, R.id.dcItemBlockTextView);
-            blockTextView.setText(block.getBlock().getName());
-            TextView dcCountTextView = ButterKnife.findById(convertView, R.id.dcItemDcCountTextView);
-            dcCountTextView.setText(String.valueOf(block.getDisciplineCount()));
-            RadioGroup radioGroup = ButterKnife.findById(convertView, R.id.dcItemRadioGroup);
-            radioGroup.removeAllViews();
-            for (BlockDisc b : block.getBlockDisc()) {
-                RadioButton radioButton = new RadioButton(getContext());
-                radioButton.setText(b.getNameUkr());
-                radioGroup.addView(radioButton);
+            if (!flag) {
+                return false;
             }
-            /*for (BlockDisc b : block.getBlockDisc()) {
-                View view = LayoutInflater.from(getContext())
-                        .inflate(R.layout.item_block_subject, null);
-                TextView divisionTextView = ButterKnife.findById(view, R.id.dcSubjectDivisionTextView);
-                divisionTextView.setText(b.getSubdivision());
-                TextView nameTextView = ButterKnife.findById(view, R.id.dcSubjectNameTextView);
-                nameTextView.setText(b.getNameUkr());
-                TextView descTextView = ButterKnife.findById(view, R.id.dcSubjectDescTextView);
-                descTextView.setText(b.getAnnotationEng());
-                TextView maxStudentsTextView = ButterKnife.findById(view, R.id.dcSubjectMaxStudentsTextView);
-                maxStudentsTextView.setText(String.valueOf(b.getMaxCountStudent()));
-                TextView studentsTextView = ButterKnife.findById(view, R.id.dcSubjectStudentsTextView);
-                studentsTextView.setText(String.valueOf(b.getStudentCount()));
-                layout.addView(view);
-            }*/
-            return convertView;
         }
+        return true;
     }
 }
