@@ -71,6 +71,16 @@
                 android:textAllCaps="true"
                 android:textColor="@color/accent"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/loginForgetPasswordTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="@string/forget_password"
+                android:textColor="@color/icons"
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 

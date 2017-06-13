@@ -49,4 +49,5 @@
     <string name="name_ukr">Назва(укр)</string>
     <string name="name_eng">Назва(англ)</string>
     <string name="dc_info_title">Детальна інформація</string>
+    <string name="forget_password">Забули пароль?</string>
 </resources>

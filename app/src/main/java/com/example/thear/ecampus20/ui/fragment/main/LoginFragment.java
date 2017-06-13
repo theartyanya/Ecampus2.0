@@ -6,11 +6,14 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.UnderlineSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -35,7 +38,8 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     TextInputLayout passwordTextInputLayout;
     @BindView(R.id.loginButton)
     TextView loginButton;
-
+    @BindView(R.id.loginForgetPasswordTextView)
+    TextView forgetTextView;
     private ProgressDialog progressDialog;
 
     public static LoginFragment newInstance() {
@@ -53,7 +57,15 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         Utils.setupUI(view, getActivity());
         ButterKnife.bind(this, view);
+        initializeViews();
         return view;
+    }
+
+    private void initializeViews() {
+        String forgetText = getString(R.string.forget_password);
+        SpannableString spannableString = new SpannableString(forgetText);
+        spannableString.setSpan(new UnderlineSpan(), 0, spannableString.length(), 0);
+        forgetTextView.setText(spannableString);
     }
 
     @Override
@@ -127,5 +139,10 @@ public class LoginFragment extends MvpAppCompatFragment implements LoginView {
     public void hideProgressDialog() {
         if (progressDialog != null)
             progressDialog.dismiss();
+    }
+
+    @OnClick(R.id.loginForgetPasswordTextView)
+    public void forgetPassword() {
+        Toast.makeText(getContext(), "Not available", Toast.LENGTH_SHORT).show();
     }
 }
