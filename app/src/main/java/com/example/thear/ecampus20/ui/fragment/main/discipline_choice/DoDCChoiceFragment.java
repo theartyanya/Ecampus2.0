@@ -109,6 +109,7 @@ public class DoDCChoiceFragment extends MvpAppCompatFragment implements DoDcchoi
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        mDoDcchoicePresenter.sendSubmitRequest();
                     }
                 });
         AlertDialog dialog = builder.create();

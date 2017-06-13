@@ -11,6 +11,7 @@ import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.presenter.main.SplashPresenter;
 import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DisciplineChoicePresenter;
 import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DisciplineSemestrPresenter;
+import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.DoDcchoicePresenter;
 import com.example.thear.ecampus20.ui.activity.main.MainActivity;
 
 import javax.inject.Singleton;
@@ -36,4 +37,6 @@ public interface AppComponent {
     void inject(BulletinsPresenter presenter);
     void inject(DisciplineChoicePresenter presenter);
     void inject(DisciplineSemestrPresenter presenter);
+
+    void inject(DoDcchoicePresenter presenter);
 }
