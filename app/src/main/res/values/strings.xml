@@ -50,4 +50,9 @@
     <string name="name_eng">Назва(англ)</string>
     <string name="dc_info_title">Детальна інформація</string>
     <string name="forget_password">Забули пароль?</string>
+    <string name="dialog_dc_title">Підтвердіть вибір дисциплін</string>
+    <string name="dialog_dc_message">Після підтвердження змінити свій вибір буде неможливо. Ви впевнені, що хочете обрати ці дисципліни?</string>
+    <string name="no">НІ</string>
+    <string name="yes">ТАК</string>
+    <string name="dc_error_msg">Ви повинні обрати дисципліни з усіх представлених блоків</string>
 </resources>
