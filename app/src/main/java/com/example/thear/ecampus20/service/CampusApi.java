@@ -1,5 +1,7 @@
 package com.example.thear.ecampus20.service;
 
+import com.example.thear.ecampus20.model.CreditModel;
+import com.example.thear.ecampus20.model.DisciplineModel;
 import com.example.thear.ecampus20.model.RnpModel;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.model.StudentInfo;
@@ -36,4 +38,10 @@ public interface CampusApi {
 
     @GET("RNP/Np")
     Observable<List<RnpModel>> getRnp();
+
+    @GET("/StudyOrganization/Discipline")
+    Observable<List<DisciplineModel>> getDisciplines();
+
+    @GET("/CreditModule/14")
+    Observable<List<CreditModel>> getCreditModule();
 }
