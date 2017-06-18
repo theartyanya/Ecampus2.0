@@ -21,7 +21,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/credit_title"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 android:gravity="center_horizontal"/>
 
             <TextView
@@ -30,7 +30,7 @@
                 android:text="@string/np_cathedra"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/credit_cathedra"
@@ -48,7 +48,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/credit_specialty"
@@ -66,7 +66,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/credit_specialization"
@@ -82,7 +82,7 @@
                 android:text="@string/credit_discipline"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/credit_discipline"

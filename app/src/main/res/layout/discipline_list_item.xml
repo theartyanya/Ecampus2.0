@@ -19,22 +19,67 @@
         android:layout_marginEnd="75dp"/>
 
     <TextView
+        android:id="@+id/discipline_cycle_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/discipline_list_name"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="@string/discipline_cycle_title"/>
+
+    <TextView
         android:id="@+id/discipline_list_cycle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/discipline_list_name"/>
+        android:layout_toRightOf="@id/discipline_cycle_title"
+        android:layout_toEndOf="@id/discipline_cycle_title"
+        android:layout_below="@id/discipline_list_name"
+        android:textStyle="italic"
+        android:layout_marginRight="75dp"
+        android:layout_marginEnd="75dp"/>
+
+    <TextView
+        android:id="@+id/discipline_code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/discipline_cycle_title"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="@string/discipline_code_title"/>
 
     <TextView
         android:id="@+id/discipline_list_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic"
-        android:layout_below="@id/discipline_list_cycle"/>
+        android:layout_toRightOf="@id/discipline_code_title"
+        android:layout_toEndOf="@id/discipline_code_title"
+        android:layout_below="@id/discipline_cycle_title"/>
+
+    <TextView
+        android:id="@+id/discipline_overcredit_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/discipline_code_title"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="@string/discipline_overcredit_title"/>
 
     <TextView
         android:id="@+id/discipline_list_overcredit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/discipline_list_code"/>
+        android:layout_toRightOf="@id/discipline_overcredit_title"
+        android:layout_toEndOf="@id/discipline_overcredit_title"
+        android:layout_below="@id/discipline_code_title"/>
+
+    <ImageButton
+        android:id="@+id/discipline_info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/information_outline"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/discipline_title"/>
 
 </RelativeLayout>

@@ -21,7 +21,7 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/np_title"
-                android:textSize="32sp"
+                android:textSize="20sp"
                 android:gravity="center_horizontal"/>
 
             <TextView
@@ -31,7 +31,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_faculty"
@@ -47,7 +47,7 @@
                 android:text="@string/np_cathedra"
                 android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_cathedra"
@@ -65,7 +65,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_specialty"
@@ -83,7 +83,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_specialization"
@@ -101,7 +101,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_study_year"
@@ -119,7 +119,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_okr"
@@ -137,7 +137,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                android:textSize="20sp"/>
+                android:textSize="16sp"/>
 
             <Spinner
                 android:id="@+id/np_study_form"

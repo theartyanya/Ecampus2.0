@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.thear.ecampus20.R;
@@ -13,6 +14,9 @@ import com.example.thear.ecampus20.model.CreditModel;
 
 import java.util.List;
 import java.util.Locale;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class CreditRecyclerViewAdapter extends RecyclerView.Adapter<CreditRecyclerViewAdapter.ViewHolder> {
     private List<CreditModel> creditList;
@@ -29,10 +33,24 @@ public class CreditRecyclerViewAdapter extends RecyclerView.Adapter<CreditRecycl
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.header.setText(creditList.get(position).getNameFull());
+    public void onBindViewHolder(ViewHolder holder, final int position) {
+        holder.header.setText(creditList.get(position).getName());
         holder.headerShort.setText(creditList.get(position).getNameShort());
         holder.cathedra.setText(creditList.get(position).getReadWhomName());
+        holder.infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null)
+                    listener.onSelected(position, v, 0);
+            }
+        });
+        holder.decreeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null)
+                    listener.onSelected(position, v, 1);
+            }
+        });
     }
 
     @Override
@@ -44,25 +62,25 @@ public class CreditRecyclerViewAdapter extends RecyclerView.Adapter<CreditRecycl
         this.listener = listener;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView header, headerShort, cathedra;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.credit_list_name)
+        TextView header;
+        @BindView(R.id.credit_list_name_short)
+        TextView headerShort;
+        @BindView(R.id.credit_list_cathedra)
+        TextView cathedra;
+        @BindView(R.id.credit_info_button)
+        ImageButton infoButton;
+        @BindView(R.id.credit_decree_button)
+        ImageButton decreeButton;
 
         ViewHolder(View itemView) {
             super(itemView);
-            header = (TextView) itemView.findViewById(R.id.credit_list_name);
-            headerShort = (TextView) itemView.findViewById(R.id.credit_list_name_short);
-            cathedra = (TextView) itemView.findViewById(R.id.credit_list_cathedra);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (listener != null)
-                listener.onSelected(this.getAdapterPosition());
+            ButterKnife.bind(this, itemView);
         }
     }
 
     public interface OnItemSelectedListener {
-        void onSelected(int position);
+        void onSelected(int position, View button, int id);
     }
 }

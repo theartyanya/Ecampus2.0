@@ -1,10 +1,14 @@
 package com.example.thear.ecampus20.ui.fragment;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -47,4 +51,22 @@ public class ChoiceFragment extends MvpAppCompatFragment implements ModuleChoice
 
     @OnClick(R.id.button_credit)
     void moveToCredits() {presenter.moveTo(Screens.CREDIT_FILTER);}
+
+    @OnClick(R.id.btn_popup)
+    void displayPopupWindow(View anchorView) {
+        PopupWindow popup = new PopupWindow(getContext());
+        View layout = getLayoutInflater(null).inflate(R.layout.discipline_detail_info, null);
+        popup.setContentView(layout);
+        TextView tv = (TextView) layout.findViewById(R.id.tvCaption);
+        tv.setText("Yo");
+        // Set content width and height
+        popup.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
+        popup.setWidth(800);
+        // Closes the popup window when touch outside of it - when looses focus
+        popup.setOutsideTouchable(true);
+        popup.setFocusable(true);
+        // Show anchored to button
+        popup.setBackgroundDrawable(new BitmapDrawable());
+        popup.showAsDropDown(anchorView);
+    }
 }

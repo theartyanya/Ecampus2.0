@@ -61,8 +61,4 @@ public class DisciplinePresenter extends MvpPresenter<DisciplineView> {
                     }
                 });
     }
-
-    public void moveToDetails(DisciplineModel model) {
-        router.navigateTo(Screens.RNP_DETAILS, model);
-    }
 }

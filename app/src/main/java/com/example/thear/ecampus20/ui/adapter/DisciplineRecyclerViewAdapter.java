@@ -1,17 +1,25 @@
 package com.example.thear.ecampus20.ui.adapter;
 
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.model.DisciplineModel;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class DisciplineRecyclerViewAdapter extends RecyclerView.Adapter<DisciplineRecyclerViewAdapter.ViewHolder> {
     private List<DisciplineModel> disciplineList;
@@ -28,19 +36,30 @@ public class DisciplineRecyclerViewAdapter extends RecyclerView.Adapter<Discipli
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         holder.header.setText(disciplineList.get(position).getNameFull());
         holder.cycle.setText(disciplineList.get(position).getComponent().getName());
         holder.code.setText(disciplineList.get(position).getShifr());
+
         if (disciplineList.get(position).getOutCredit() != null) {
             if (disciplineList.get(position).getOutCredit()) {
-                holder.overcredit.setText("Позакредитність: так");
+                holder.overcredit.setText("так");
                 holder.overcredit.setTextColor(Color.rgb(0, 204, 0));
             } else {
-                holder.overcredit.setText("Позакредитність: ні");
+                holder.overcredit.setText("ні");
                 holder.overcredit.setTextColor(Color.rgb(204, 0, 0));
             }
+        } else {
+            holder.overcredit.setText("не вказано");
+            holder.overcredit.setTextColor(Color.GRAY);
         }
+        holder.infoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null)
+                    listener.onSelected(position, v);
+            }
+        });
     }
 
     @Override
@@ -52,26 +71,25 @@ public class DisciplineRecyclerViewAdapter extends RecyclerView.Adapter<Discipli
         this.listener = listener;
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView header, cycle, code, overcredit;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.discipline_list_name)
+        TextView header;
+        @BindView(R.id.discipline_list_cycle)
+        TextView cycle;
+        @BindView(R.id.discipline_list_code)
+        TextView code;
+        @BindView(R.id.discipline_list_overcredit)
+        TextView overcredit;
+        @BindView(R.id.discipline_info_button)
+        ImageView infoButton;
 
         ViewHolder(View itemView) {
             super(itemView);
-            header = (TextView) itemView.findViewById(R.id.discipline_list_name);
-            cycle = (TextView) itemView.findViewById(R.id.discipline_list_cycle);
-            code = (TextView) itemView.findViewById(R.id.discipline_list_code);
-            overcredit = (TextView) itemView.findViewById(R.id.discipline_list_overcredit);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View v) {
-            if (listener != null)
-                listener.onSelected(this.getAdapterPosition());
+            ButterKnife.bind(this, itemView);
         }
     }
 
     public interface OnItemSelectedListener {
-        void onSelected(int position);
+        void onSelected(int position, View button);
     }
 }

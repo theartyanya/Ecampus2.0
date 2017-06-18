@@ -19,29 +19,57 @@
         android:layout_marginEnd="75dp"/>
 
     <TextView
+        android:id="@+id/np_or_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/np_okr"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_below="@id/np_list_name"/>
+
+    <TextView
         android:id="@+id/np_list_okr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/np_or_title"
+        android:layout_toEndOf="@id/np_or_title"
+        android:textStyle="italic"
         android:layout_below="@id/np_list_name"/>
+
+    <TextView
+        android:id="@+id/np_study_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/np_study_form"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_below="@id/np_or_title"/>
 
     <TextView
         android:id="@+id/np_list_study_form"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="italic"
+        android:layout_toRightOf="@id/np_study_form_title"
+        android:layout_toEndOf="@id/np_study_form_title"
         android:layout_below="@id/np_list_okr"/>
+
+    <TextView
+        android:id="@+id/np_list_actuality_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/np_details_actuality"
+        android:layout_marginRight="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_below="@id/np_study_form_title"/>
 
     <TextView
         android:id="@+id/np_list_actuality"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/np_list_study_form"/>
-
-    <TextView
-        android:id="@+id/np_list_id"
-        android:layout_below="@id/np_list_actuality"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_toRightOf="@id/np_list_actuality_title"
+        android:layout_toEndOf="@id/np_list_actuality_title"
+        android:layout_below="@id/np_study_form_title"/>
 
     <TextView
         android:id="@+id/np_list_date"

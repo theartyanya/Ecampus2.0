@@ -28,7 +28,28 @@
         android:id="@+id/credit_list_cathedra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="75dp"
+        android:layout_marginEnd="75dp"
         android:textStyle="italic"
         android:layout_below="@id/credit_list_name_short"/>
+
+    <ImageButton
+        android:id="@+id/credit_info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/information_outline"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@string/discipline_title"/>
+
+    <ImageButton
+        android:id="@+id/credit_decree_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/view_headline"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/credit_info_button"
+        android:contentDescription="@string/discipline_title"/>
 
 </RelativeLayout>

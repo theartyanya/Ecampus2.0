@@ -43,10 +43,7 @@ public class NpFragment extends MvpAppCompatFragment implements RnView {
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_np, container, false);
-        setupNavigation();
-
-        return view;
+        return inflater.inflate(R.layout.fragment_np, container, false);
     }
 
     @Override
@@ -71,15 +68,6 @@ public class NpFragment extends MvpAppCompatFragment implements RnView {
 
     public void showToast(String msg) {
         Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-    }
-
-    private void setupNavigation() {
-        MvpAppCompatActivity activity = (MvpAppCompatActivity) getActivity();
-        activity.getSupportActionBar().setTitle(getString(R.string.nav_rnp));
-        NavigationView navView = (NavigationView) activity.findViewById(R.id.navView);
-        Menu navMenu = navView.getMenu();
-        MenuItem menuItem = navMenu.findItem(R.id.navRNP);
-        menuItem.setChecked(true);
     }
 
     @Override
