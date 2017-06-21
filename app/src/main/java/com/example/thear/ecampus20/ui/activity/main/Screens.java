@@ -13,5 +13,6 @@ public interface Screens {
     String LOGIN_SCREEN = "login_screen";
     String DO_CHOICE_SCREEN = "do_choice_screen";
     String VIEW_CHOICE_SCREEN = "view_choice_scree";
+    String VIEW_DC_INFO = "dc_info";
     String PROFILE = "profile";
 }

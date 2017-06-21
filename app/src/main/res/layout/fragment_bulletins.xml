@@ -5,16 +5,5 @@
     android:background="@android:color/white"
     tools:context=".ui.fragment.main.BulletinsFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bulletins"
-        android:textSize="48sp"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Greetings"/>
-
 
 </LinearLayout>

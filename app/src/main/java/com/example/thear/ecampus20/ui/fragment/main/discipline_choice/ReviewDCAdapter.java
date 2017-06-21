@@ -26,10 +26,12 @@ public class ReviewDCAdapter extends RecyclerView.Adapter<ReviewDCAdapter.ViewHo
 
     private List<Block> blocks;
     private Context context;
+    private OnInfoClick infoClick;
 
-    public ReviewDCAdapter(List<Block> blocks, Context context) {
+    public ReviewDCAdapter(List<Block> blocks, Context context, OnInfoClick infoClick) {
         this.blocks = blocks;
         this.context = context;
+        this.infoClick = infoClick;
     }
 
 
@@ -87,7 +89,7 @@ public class ReviewDCAdapter extends RecyclerView.Adapter<ReviewDCAdapter.ViewHo
         public void onClick(View v) {
             ImageView imageView = (ImageView) v;
             BlockDisc b = (BlockDisc) imageView.getTag();
-
+            infoClick.showInfoDialog(b);
         }
     }
 }

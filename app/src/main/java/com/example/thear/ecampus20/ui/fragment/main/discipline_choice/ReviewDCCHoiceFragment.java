@@ -13,6 +13,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.thear.ecampus20.R;
 import com.example.thear.ecampus20.commons.Constants;
 import com.example.thear.ecampus20.commons.Utils;
+import com.example.thear.ecampus20.model.BlockDisc;
 import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.discipline_choice.ReviewDcchoicePresenter;
 import com.example.thear.ecampus20.presentation.view.main.discipline_choice.ReviewDcchoiceView;
@@ -48,7 +49,13 @@ public class ReviewDCCHoiceFragment extends MvpAppCompatFragment implements Revi
         }
         View view = inflater.inflate(R.layout.fragment_review_dcchoice, container, false);
         ButterKnife.bind(this, view);
-        adapter = new ReviewDCAdapter(semestr.getBlocks(), getContext());
+        adapter = new ReviewDCAdapter(semestr.getBlocks(), getContext(), new OnInfoClick() {
+
+            @Override
+            public void showInfoDialog(BlockDisc blockDisc) {
+                mReviewDcchoicePresenter.goToInfo();
+            }
+        });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         RecyclerViewDivider.with(getContext())

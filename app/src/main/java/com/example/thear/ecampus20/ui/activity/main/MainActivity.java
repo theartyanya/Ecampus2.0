@@ -19,6 +19,7 @@ import com.example.thear.ecampus20.model.Semestr;
 import com.example.thear.ecampus20.presentation.presenter.main.MainPresenter;
 import com.example.thear.ecampus20.presentation.view.main.MainView;
 import com.example.thear.ecampus20.ui.fragment.main.BulletinsFragment;
+import com.example.thear.ecampus20.ui.fragment.main.DCInfoFragment;
 import com.example.thear.ecampus20.ui.fragment.main.LoginFragment;
 import com.example.thear.ecampus20.ui.fragment.main.ProfileFragment;
 import com.example.thear.ecampus20.ui.fragment.main.RNPFragment;
@@ -82,6 +83,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView, View
                 }
                 case Screens.PROFILE: {
                     return ProfileFragment.newInstance();
+                }
+                case Screens.VIEW_DC_INFO: {
+                    return DCInfoFragment.newInstance();
                 }
                 default:
                     throw new RuntimeException("Unknown screen key!");

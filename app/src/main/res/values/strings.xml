@@ -55,4 +55,11 @@
     <string name="no">НІ</string>
     <string name="yes">ТАК</string>
     <string name="dc_error_msg">Ви повинні обрати дисципліни з усіх представлених блоків</string>
+    <string name="knowledge">Знання:</string>
+    <string name="annotation_eng">Анотація(англ):</string>
+    <string name="annotation_ukr">Аннотація(укр):</string>
+    <string name="students_count">Кількість студентів:</string>
+    <string name="max_student_count">Максимальна кількість студентів:</string>
+    <string name="skills">Навички:</string>
+    <string name="ok">ОК</string>
 </resources>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_light_background">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_placeholder" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/name_ukr" />
+
+            <TextView
+                android:id="@+id/dcInfoNameUkrTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Чисельні методи" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name_eng" />
+
+            <TextView
+                android:id="@+id/dcInfoNameEngTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Numerical Methods" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/subdivision" />
+
+            <TextView
+                android:id="@+id/dcInfoSubdivisionTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Кафедра технічної кібернетики" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вища математика, дискретна математика, математичний аналіз" />
+
+            <TextView
+                android:id="@+id/dcInfoKnowledgeTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/knowledge" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/skills" />
+
+            <TextView
+                android:id="@+id/dcInfoSkillsTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Вміння аналізувати та використовувати наявний інструментарій" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/annotation_eng" />
+
+            <TextView
+                android:id="@+id/dcInfoAnnotationEngTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porta libero non dui rutrum sollicitudin. Ut nec nisi sagittis, consequat lectus nec, viverra urna. " />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/annotation_ukr" />
+
+            <TextView
+                android:id="@+id/dcInfoAnnotationUkrTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem Ipsum є псевдо- латинський текст використовується у веб - дизайні, типографіка, верстка, і друку замість англійської підкреслити елементи дизайну над змістом. Це також називається заповнювач ( або наповнювач) текст." />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/students_count" />
+
+            <TextView
+                android:id="@+id/dcInfoStudentsCountTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="30" />
+
+            <TextView
+                style="@style/textViewStyle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/max_student_count" />
+
+            <TextView
+                android:id="@+id/dcInfoMaxStudentsCountTextView"
+                style="@style/textViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="15" />
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

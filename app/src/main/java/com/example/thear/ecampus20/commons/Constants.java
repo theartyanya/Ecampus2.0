@@ -16,7 +16,6 @@ public interface Constants {
 
     String DC_STATUS_AVAILABLE = "available";
     String DC_STATUS_UNAVAILABLE = "not available";
-    //уточнить
     String DC_STATUS_DONE = "done";
 
     String DC_COURSE_KEY = "course";
